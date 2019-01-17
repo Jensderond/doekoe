@@ -10,7 +10,7 @@ module.exports = {
   },
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential', 'airbnb-base'],
+  extends: ['plugin:vue/strongly-recommended', 'airbnb-base'],
   // required to lint *.vue files
   plugins: [
     'vue'
@@ -39,6 +39,26 @@ module.exports = {
         'acc', // for reduce accumulators
         'e' // for e.returnvalue
       ]
+    }],
+    "vue/singleline-html-element-content-newline": ["warning", {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["pre", "textarea", "template"]
+    }],
+    "vue/multiline-html-element-content-newline": ["warning", {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["pre", "textarea", "template"]
+    }],
+    "vue/no-template-shadow": ["warning", {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["pre", "textarea", "template"]
+    }],
+    "vue/no-spaces-around-equal-signs-in-attribute": ["warning", {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["pre", "textarea", "template"]
     }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {

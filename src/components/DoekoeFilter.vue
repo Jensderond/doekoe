@@ -1,14 +1,20 @@
 <template>
-  <div id="doekoefilter" class="uk-margin">
-    <select class="uk-select"
+  <div
+    id="doekoefilter"
+    class="uk-margin"
+  >
+    <select
+      class="uk-select"
       v-model.lazy="filterSelected"
-      v-on:change="changeOption()">
-        <option
-          v-for="optionValue in optionValues"
-          v-bind:key="optionValue.id"
-          :value="optionValue.id">
-          {{ optionValue.value }}
-        </option>
+      :change="changeOption()"
+    >
+      <option
+        v-for="optionValue in optionValues"
+        :key="optionValue.id"
+        :value="optionValue.id"
+      >
+        {{ optionValue.value }}
+      </option>
     </select>
   </div>
 </template>
