@@ -15,6 +15,7 @@ export default new Vuex.Store({
       state.quarter = n;
     },
     setStore(state, doekoes) {
+      doekoes.sort((a, b) => new Date(a.date) - new Date(b.date));
       state.doekoes = doekoes;
     },
     addDoekoe(state, doekoe) {

@@ -1,6 +1,17 @@
 <template>
-  <div id="doekoelist">
-    <DoekoeFilter />
+  <div
+    id="doekoelist"
+    class="uk-light"
+  >
+    <div
+      class="controls__top uk-column-1-2"
+    >
+      <DoekoeFilter />
+      <router-link
+        to="/new"
+        class="uk-button uk-button-secondary uk-width-1-1"
+      >Add new</router-link>
+    </div>
     <div class="list">
       <ul class="uk-list uk-list-divider">
         <div
@@ -32,10 +43,6 @@
         </div>
       </ul>
     </div>
-    <router-link
-      to="/new"
-      class="uk-button uk-button-secondary"
-    >Add new</router-link>
   </div>
 </template>
 
@@ -105,5 +112,17 @@ export default {
 .uk-icon-link:focus,
 .uk-icon-link:hover {
   color: #fff;
+}
+.controls__top {
+  margin-bottom: 10px;
+}
+[class*=uk-column-] {
+  column-gap: 20px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .4s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

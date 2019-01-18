@@ -1,7 +1,7 @@
 <template>
   <div
     id="doekoefilter"
-    class="uk-margin"
+    class="uk-margin uk-width-1-1"
   >
     <select
       class="uk-select"

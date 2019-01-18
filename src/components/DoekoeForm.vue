@@ -223,12 +223,14 @@ export default {
         doekoe.vat !== ''
       ) {
         this.isError = false;
-      } else {
-        this.isError = true;
-        setTimeout(() => {
-          this.isError = false;
-        }, 3000);
+        return true;
       }
+
+      this.isError = true;
+      setTimeout(() => {
+        this.isError = false;
+      }, 3000);
+      return false;
     },
   },
 };

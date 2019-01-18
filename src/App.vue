@@ -9,7 +9,12 @@
       height="150"
       width="150"
     >
-    <router-view />
+    <transition
+      name="fade"
+      mode="out-in"
+    >
+      <router-view />
+    </transition>
   </div>
 </template>
 
