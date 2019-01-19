@@ -26,7 +26,6 @@ export default {
 
 <style>
 html {
-  /* background-image: url('./assets/canvas.png'); */
   background-color: #243447;
 }
 #app {
