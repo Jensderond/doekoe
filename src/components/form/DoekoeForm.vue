@@ -162,7 +162,7 @@
       >Next</button>
 
       <button
-        @click.prevent="addDoekoe(newDoekoe)"
+        @click.prevent="isValidDoekoe(newDoekoe)"
         v-if="step === 6"
         class="uk-button uk-button-primary-green uk-margin-small-left"
       >Save</button>
@@ -180,7 +180,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 import { setTimeout } from 'timers';
-import store from '../store';
+import { mapActions } from 'vuex';
 
 export default {
   components: {
@@ -201,18 +201,21 @@ export default {
     };
   },
   methods: {
+    ...mapActions('doekoes', {
+      addDoekoe: 'addOne',
+    }),
     prev() {
       this.step -= 1;
     },
     next() {
       this.step += 1;
     },
-    addDoekoe(newDoekoe) {
-      if (!this.isValidDoekoe(newDoekoe)) return;
-      store.dispatch('addDoekoe', { ...newDoekoe }).then(() => {
-        this.$router.push({ path: '/' });
-      });
-    },
+    // addDoekoe(newDoekoe) {
+    //   if (!this.isValidDoekoe(newDoekoe)) return;
+    //   store.dispatch('addDoekoe', { ...newDoekoe }).then(() => {
+    //     this.$router.push({ path: '/' });
+    //   });
+    // },
     isValidDoekoe(doekoe) {
       if (
         doekoe.amount !== '' &&
@@ -223,14 +226,14 @@ export default {
         doekoe.vat !== ''
       ) {
         this.isError = false;
-        return true;
+        this.addDoekoe(doekoe);
+        this.$router.push({ path: '/' });
       }
 
       this.isError = true;
       setTimeout(() => {
         this.isError = false;
       }, 3000);
-      return false;
     },
   },
 };

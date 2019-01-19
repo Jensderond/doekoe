@@ -2,8 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
-import router from './router';
-import store from './store';
+import { router } from './_helpers';
+import { store } from './_store';
 
 Vue.config.productionTip = false;
 
@@ -14,7 +14,4 @@ new Vue({
   components: { App },
   template: '<App/>',
   store,
-  mounted() {
-    store.dispatch('getDoekoes');
-  },
 });

@@ -12,7 +12,10 @@
         class="uk-button uk-button-secondary uk-width-1-1"
       >Add new</router-link>
     </div>
-    <div class="list">
+    <div
+      class="list"
+      v-if="doekoes[0] !== undefined"
+    >
       <ul class="uk-list uk-list-divider">
         <div
           v-for="(doekoe, idx) in doekoes"
@@ -47,35 +50,38 @@
 </template>
 
 <script>
-import DoekoeFilter from '@/components/DoekoeFilter';
+import { mapActions, mapState } from 'vuex';
 import moment from 'moment';
 import UIkit from 'uikit';
-import store from '../store';
+import DoekoeFilter from '@/components/filter/DoekoeFilter';
 
 export default {
   name: 'DoekoeList',
   data() {
     return {
       step: 1,
-      // doekoes: [],
     };
   },
   components: {
     DoekoeFilter,
   },
+  created() {
+    this.getAllDoekoes();
+  },
   methods: {
+    ...mapActions('doekoes', {
+      getAllDoekoes: 'getAll',
+      deleteDoekoe: 'delete',
+    }),
     showModal(idx, doekoe) {
       if (doekoe === undefined) { return; }
 
       UIkit.modal.confirm(`Are you sure you want to delete this?<br/><br/>${doekoe.company} - €${doekoe.amount}`, { bgClose: true }).then(() => {
-        this.deleteDoekoe(idx, doekoe.id);
+        this.deleteDoekoe(doekoe.id);
       }, () => {
         // eslint-disable-next-line
         console.log('Rejected.');
       });
-    },
-    deleteDoekoe(index, doekoeId) {
-      store.dispatch('deleteDoekoe', { index, doekoeId });
     },
   },
   filters: {
@@ -83,8 +89,15 @@ export default {
     currency: value => (value / 1).toFixed(2).replace('.', ','),
   },
   computed: {
+    ...mapState({
+      account: state => state.account,
+      // doekoes: state => state.doekoes.all,
+    }),
     doekoes() {
-      return store.state.doekoes.filter(q => q.quarter === store.state.quarter);
+      if (this.$store.state.doekoes.all.items === undefined) return [];
+      return [...this.$store.state.doekoes.all.items].filter(
+        q => q.quarter === this.$store.state.doekoes.quarter,
+      );
     },
   },
 };

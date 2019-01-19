@@ -5,8 +5,8 @@
   >
     <select
       class="uk-select"
-      v-model.lazy="filterSelected"
-      :change="changeOption()"
+      v-model="filterSelected"
+      :change="changeOption(filterSelected)"
     >
       <option
         v-for="optionValue in optionValues"
@@ -20,25 +20,31 @@
 </template>
 
 <script>
-import store from '../store';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'DoekoeFilter',
   data() {
     return {
-      filterSelected: store.state.quarter,
       optionValues: [
         { id: 1, value: 'Quarter 1' },
         { id: 2, value: 'Quarter 2' },
         { id: 3, value: 'Quarter 3' },
         { id: 4, value: 'Quarter 4' },
       ],
+      filterSelected: this.$store.state.doekoes.quarter,
     };
   },
   methods: {
-    changeOption() {
-      store.commit('changeQuarter', this.filterSelected);
-    },
+    ...mapActions('doekoes', {
+      getQuarter: 'getQuarter',
+      changeOption: 'changeQuarter',
+    }),
+  },
+  computed: {
+    // ...mapState({
+    //   filterSelected: state => state.doekoes.quarter,
+    // }),
   },
 };
 </script>
