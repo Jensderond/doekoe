@@ -42,22 +42,22 @@ html {
   position: relative !important;
 }
 .vdp-datepicker__calendar {
-  background: #202b3c;
+  background: #202b3c !important;
 }
 .vdp-datepicker__calendar header .prev:not(.disabled):hover,
 .vdp-datepicker__calendar header .next:not(.disabled):hover,
 .vdp-datepicker__calendar header .up:not(.disabled):hover {
-  background: #111821;
+  background: #111821 !important;
 }
 .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
 .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
 .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
-  border: 1px solid #28946b;
+  border: 1px solid #28946b !important;
 }
 .vdp-datepicker__calendar .cell.selected {
-  background: #28946b;
+  background: #28946b !important;
 }
 .vdp-datepicker__calendar .cell.selected:hover {
-  background: #1d6d49;
+  background: #1d6d49 !important;
 }
 </style>
