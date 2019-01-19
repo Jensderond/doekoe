@@ -4,6 +4,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 Vue.use(Vuex);
+const backend = 'https://behind.doekoe.sh';
 
 export default new Vuex.Store({
   state: {
@@ -30,7 +31,7 @@ export default new Vuex.Store({
       // TODO: add loading component
       // commit('loading');
       try {
-        axios.get('http://localhost:1337/doekoes')
+        axios.get(`${backend}/doekoes`)
           .then(response => commit('setStore', response.data))
           .catch((error) => {
             // eslint-disable-next-line
@@ -47,7 +48,7 @@ export default new Vuex.Store({
         const doekoe = { ...data };
         doekoe.quarter = moment(data.date).quarter();
         if (data !== undefined) {
-          axios.post('http://localhost:1337/doekoes', doekoe)
+          axios.post(`${backend}/doekoes`, doekoe)
             .then(response => commit('addDoekoe', response.data))
             .catch((error) => {
               // eslint-disable-next-line
@@ -62,7 +63,7 @@ export default new Vuex.Store({
     },
     deleteDoekoe({ commit }, payload) {
       try {
-        axios.delete(`http://localhost:1337/doekoes/${payload.doekoeId}`)
+        axios.delete(`${backend}/doekoes/${payload.doekoeId}`)
           .then(() => commit('deleteDoekoe', payload.index))
           .catch((error) => {
             // eslint-disable-next-line
