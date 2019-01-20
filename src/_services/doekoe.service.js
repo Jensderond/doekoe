@@ -28,8 +28,11 @@ async function getAll() {
     method: 'GET',
     headers: authHeader(),
   };
+  const user = JSON.parse(localStorage.getItem('user'));
 
-  return axios(`${config.apiUrl}/doekoes`, requestOptions).then(handleResponse);
+  // TODO: Catch this on the API side.
+  // eslint-disable-next-line no-underscore-dangle
+  return axios(`${config.apiUrl}/doekoes?user=${user.user._id}`, requestOptions).then(handleResponse);
 }
 
 
