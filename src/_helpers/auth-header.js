@@ -3,9 +3,9 @@ export function authHeader() {
   // return authorization header with jwt token
   const user = JSON.parse(localStorage.getItem('user'));
 
-  if (user && user.token) {
+  if (user && user.jwt) {
     // eslint-disable-next-line quote-props
-    return { 'Authorization': `Bearer ${user.token}` };
+    return { 'Authorization': `Bearer ${user.jwt}` };
   }
   return {};
 }
