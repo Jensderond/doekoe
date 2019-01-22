@@ -26,7 +26,7 @@ async function login(username, password) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    data: JSON.stringify({ identifier: username, password }),
+    data: JSON.stringify({ email: username, password }),
   };
 
   return axios(`${config.apiUrl}/login`, requestOptions)
