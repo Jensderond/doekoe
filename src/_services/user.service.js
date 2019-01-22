@@ -29,7 +29,7 @@ async function login(username, password) {
     data: JSON.stringify({ identifier: username, password }),
   };
 
-  return axios(`${config.apiUrl}/auth/local`, requestOptions)
+  return axios(`${config.apiUrl}/login`, requestOptions)
     .then(handleResponse)
     .then((userData) => {
       // login successful if there's a jwt token in the response
