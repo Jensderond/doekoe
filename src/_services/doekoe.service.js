@@ -51,7 +51,7 @@ async function add(doekoe) {
     headers: { ...authHeader(), 'Content-Type': 'application/json' },
     data: JSON.stringify(item),
   };
-  return axios(`${config.apiUrl}/doekoes/`, requestOptions).then(handleResponse);
+  return axios(`${config.apiUrl}/doekoes`, requestOptions).then(handleResponse);
 }
 
 async function update(doekoe) {

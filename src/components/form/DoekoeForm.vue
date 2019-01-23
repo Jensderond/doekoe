@@ -194,7 +194,7 @@ export default {
         type: '',
         amount: '',
         company: '',
-        vat: '21',
+        vat: 21,
         category: '',
       },
       isError: false,
