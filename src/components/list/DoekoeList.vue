@@ -95,9 +95,13 @@ export default {
     }),
     doekoes() {
       if (this.$store.state.doekoes.all.items === undefined) return [];
-      return [...this.$store.state.doekoes.all.items].filter(
-        q => q.quarter === this.$store.state.doekoes.quarter,
-      );
+      return [...this.$store.state.doekoes.all.items]
+        .filter(
+          q => q.quarter === this.$store.state.doekoes.quarter,
+        )
+        .sort(
+          (a, b) => new Date(a.date) - new Date(b.date),
+        );
     },
   },
 };

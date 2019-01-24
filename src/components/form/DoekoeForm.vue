@@ -86,7 +86,7 @@
           <input
             class="uk-input"
             type="text"
-            v-model.number="newDoekoe.amount"
+            v-model="newDoekoe.amount"
             placeholder="eg. 00.00"
           >
         </div>
@@ -225,8 +225,10 @@ export default {
         doekoe.type !== '' &&
         doekoe.vat !== ''
       ) {
+        const newDoekoe = { ...doekoe };
+        newDoekoe.amount = parseFloat(doekoe.amount);
         this.isError = false;
-        this.addDoekoe(doekoe);
+        this.addDoekoe(newDoekoe);
         this.$router.push({ path: '/' });
       }
 
