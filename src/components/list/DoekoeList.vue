@@ -85,7 +85,7 @@ export default {
     },
   },
   filters: {
-    moment: date => moment(date).format('L'),
+    moment: date => moment(date).format('DD-MM-YYYY'),
     currency: value => (value / 1).toFixed(2).replace('.', ','),
   },
   computed: {
