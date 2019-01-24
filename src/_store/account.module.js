@@ -15,11 +15,12 @@ const actions = {
       .then(
         (user) => {
           commit('loginSuccess', user);
+          dispatch('alert/success', user.fullname, { root: true });
           router.push('/');
         },
         (error) => {
-          commit('loginFailure', error);
-          dispatch('alert/error', error, { root: true });
+          commit('loginFailure', error.response.data.message);
+          dispatch('alert/error', error.response.data.message, { root: true });
         },
       );
   },

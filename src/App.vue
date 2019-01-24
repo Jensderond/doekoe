@@ -3,6 +3,10 @@
     id="app"
     class="uk-container"
   >
+    <notifications
+      group="auth"
+      position="center right"
+    />
     <img
       class="uk-logo uk-margin-medium-bottom uk-svg"
       src="./assets/logo.svg"
