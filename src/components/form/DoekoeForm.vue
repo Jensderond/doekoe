@@ -226,7 +226,8 @@ export default {
         doekoe.vat !== ''
       ) {
         const newDoekoe = { ...doekoe };
-        newDoekoe.amount = parseFloat(doekoe.amount);
+        const amount = doekoe.amount;
+        newDoekoe.amount = parseFloat(amount.replace(/,/, '.'));
         this.isError = false;
         this.addDoekoe(newDoekoe);
         this.$router.push({ path: '/' });
