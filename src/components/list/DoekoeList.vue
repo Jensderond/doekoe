@@ -33,7 +33,7 @@
           </div>
           <p>{{ doekoe.company }}</p>
 
-          <div class="uk-position-center-right uk-margin-right">
+          <div class="uk-position-center-right uk-position-medium ">
             <a
               @click.prevent="showModal(idx, doekoe)"
               id="js-modal-confirm"
@@ -57,16 +57,8 @@ import DoekoeFilter from '@/components/filter/DoekoeFilter';
 
 export default {
   name: 'DoekoeList',
-  data() {
-    return {
-      step: 1,
-    };
-  },
   components: {
     DoekoeFilter,
-  },
-  created() {
-    this.getAllDoekoes();
   },
   methods: {
     ...mapActions('doekoes', {

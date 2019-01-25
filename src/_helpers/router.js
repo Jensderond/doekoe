@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import DoekoeOverview from '@/components/overview/DoekoeOverview';
 import DoekoeList from '@/components/list/DoekoeList';
 import DoekoeForm from '@/components/form/DoekoeForm';
 import LoginPage from '@/components/login/LoginPage';
 import RegisterPage from '@/components/register/RegisterPage';
+import AboutPage from '@/components/aboutUs/AboutPage';
 
 Vue.use(Router);
 
@@ -12,6 +14,11 @@ export const router = new Router({
   routes: [
     {
       path: '/',
+      name: 'DoekoeOverview',
+      component: DoekoeOverview,
+    },
+    {
+      path: '/list',
       name: 'DoekoeList',
       component: DoekoeList,
     },
@@ -27,6 +34,10 @@ export const router = new Router({
     {
       path: '/register',
       component: RegisterPage,
+    },
+    {
+      path: '/about-us',
+      component: AboutPage,
     },
   ],
 });

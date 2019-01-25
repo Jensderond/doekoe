@@ -3,15 +3,16 @@
     id="app"
     class="uk-container"
   >
+    <MenuToggle />
     <notifications
       group="auth"
-      position="center right"
+      position="center left"
     />
     <img
       class="uk-logo uk-margin-medium-bottom uk-svg"
       src="./assets/logo.svg"
-      height="150"
-      width="150"
+      height="80"
+      width="80"
     >
     <transition
       name="fade"
@@ -23,8 +24,22 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import MenuToggle from '@/components/menu/MenuToggle';
+
 export default {
   name: 'App',
+  components: {
+    MenuToggle,
+  },
+  created() {
+    this.getAllDoekoes();
+  },
+  methods: {
+    ...mapActions('doekoes', {
+      getAllDoekoes: 'getAll',
+    }),
+  },
 };
 </script>
 
