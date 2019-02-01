@@ -16,4 +16,16 @@ export const store = new Vuex.Store({
     doekoes,
     // users
   },
+  mutations: {
+    loadFromCache(state, cached) {
+      if (cached) {
+        Object.keys(cached).forEach((key) => {
+          state[key] = Object.assign({}, state[key], cached[key]);
+        });
+      }
+
+      state.initialized = true;
+    },
+  },
+  plugins: [cache, sync],
 });

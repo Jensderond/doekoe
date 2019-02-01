@@ -1,10 +1,11 @@
 import axios from 'axios';
 import moment from 'moment';
+import localforage from 'localforage';
 import { authHeader, config } from '../_helpers';
 
 function logout() {
   // remove user from local storage to log user out
-  localStorage.removeItem('user');
+  localforage.removeItem('user');
 }
 
 function handleResponse(response) {

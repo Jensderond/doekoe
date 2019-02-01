@@ -1,8 +1,12 @@
 /* eslint-disable no-shadow */
+import localforage from 'localforage';
 import { userService } from '../_services';
 import { router } from '../_helpers';
 
-const user = JSON.parse(localStorage.getItem('user'));
+// eslint-disable-next-line
+console.log(localforage.getItem('user'));
+const user = localforage.getItem('user');
+
 const state = user
   ? { status: { loggedIn: true }, user }
   : { status: {}, user: null };

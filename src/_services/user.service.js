@@ -1,9 +1,10 @@
 import axios from 'axios';
+import localforage from 'localforage';
 import { config } from '../_helpers';
 
 function logout() {
   // remove user from local storage to log user out
-  localStorage.removeItem('user');
+  localforage.clear();
 }
 
 function handleResponse(response) {
@@ -36,7 +37,7 @@ async function login(username, password) {
       if (userData.token) {
         // store user details and jwt token in local storage
         // to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(userData));
+        localforage.setItem('user', JSON.stringify(userData));
       }
 
       return userData;
