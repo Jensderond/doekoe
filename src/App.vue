@@ -24,21 +24,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import MenuToggle from '@/components/menu/MenuToggle';
 
 export default {
   name: 'App',
   components: {
     MenuToggle,
-  },
-  created() {
-    this.getAllDoekoes();
-  },
-  methods: {
-    ...mapActions('doekoes', {
-      getAllDoekoes: 'getAll',
-    }),
   },
 };
 </script>

@@ -56,6 +56,7 @@ export default {
   },
   computed: {
     doekoes() {
+      if (this.$store.state.doekoes.updatedAt === null) { this.getAllDoekoes(); }
       if (this.$store.state.doekoes.all.items === undefined) return [];
       return [...this.$store.state.doekoes.all.items]
         .filter(

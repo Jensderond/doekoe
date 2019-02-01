@@ -16,6 +16,7 @@ const actions = {
         (user) => {
           commit('loginSuccess', user);
           dispatch('alert/success', user.fullname, { root: true });
+          dispatch('doekoes/getAll', null, { root: true });
           router.push('/');
         },
         (error) => {

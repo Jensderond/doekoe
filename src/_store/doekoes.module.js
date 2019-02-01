@@ -5,6 +5,7 @@ import { doekoeService } from '../_services';
 const state = {
   all: {},
   quarter: moment().quarter(),
+  updatedAt: null,
 };
 
 const actions = {
@@ -47,6 +48,7 @@ const mutations = {
     state.all = { loading: true };
   },
   getAllSuccess(state, doekoes) {
+    state.updatedAt = new Date().getTime();
     state.all = { items: doekoes };
   },
   getAllFailure(state, error) {
