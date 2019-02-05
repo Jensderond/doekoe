@@ -20,16 +20,19 @@
     >
       <router-view />
     </transition>
+    <Footer />
   </div>
 </template>
 
 <script>
 import MenuToggle from '@/components/menu/MenuToggle';
+import Footer from '@/components/footer/Footer';
 
 export default {
   name: 'App',
   components: {
     MenuToggle,
+    Footer,
   },
 };
 </script>

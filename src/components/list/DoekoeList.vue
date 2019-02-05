@@ -21,7 +21,7 @@
           v-for="(doekoe, idx) in doekoes"
           :key="idx"
           class="uk-margin uk-card uk-card-body
-            uk-width-auto uk-animation-slide-top-medium"
+            uk-width-auto uk-animation-slide-bottom-small"
           :class="{ 'uk-card-income': doekoe.type === 'income',
                     'uk-card-expense': doekoe.type === 'expense' }"
         >

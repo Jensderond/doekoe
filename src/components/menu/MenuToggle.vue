@@ -100,6 +100,16 @@ export default {
 
 <style scoped>
 
+.uk-button-default {
+    background-color: #e4e4e4;
+    color: #273448;
+}
+
+.uk-navbar-toggle:hover {
+    background-color: #fff;
+    color: #273448;
+}
+
 .uk-sticky.uk-active {
   right: 0;
 }

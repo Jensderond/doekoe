@@ -12,7 +12,7 @@
     <ul class="uk-list uk-list-divider">
       <div
         class="uk-margin uk-card uk-card-body
-          uk-width-auto uk-animation-slide-top-medium uk-card-income"
+          uk-width-auto uk-animation-slide-bottom-small uk-card-income"
       >
         <div class="uk-width-auto">
           <h3 class="uk-card-title uk-margin-remove-bottom">€{{ profit | currency }}</h3>
@@ -23,7 +23,7 @@
       </div>
       <div
         class="uk-margin uk-card uk-card-body
-          uk-width-auto uk-animation-slide-top-medium uk-card-expense"
+          uk-width-auto uk-animation-slide-bottom-small uk-card-expense"
       >
         <div class="uk-width-auto">
           <h3 class="uk-card-title uk-margin-remove-bottom">€{{ expense | currency }}</h3>
@@ -33,6 +33,7 @@
         </div>
       </div>
     </ul>
+    <p>Total revenue is: €{{ profit - expense | currency }}</p>
   </div>
 </template>
 
@@ -83,7 +84,7 @@ export default {
       );
       const initialValue = 0;
       const sum = income.reduce(
-        (accumulator, currentValue) => accumulator - currentValue.amount,
+        (accumulator, currentValue) => accumulator + currentValue.amount,
         initialValue,
       );
 
