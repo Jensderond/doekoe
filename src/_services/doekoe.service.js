@@ -5,6 +5,8 @@ import { authHeader, config } from '../_helpers';
 function logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('user');
+  localStorage.removeItem('doekoes');
+  localStorage.removeItem('updatedAt');
 }
 
 function handleResponse(response) {
@@ -29,7 +31,13 @@ async function getAll() {
     headers: authHeader(),
   };
   // eslint-disable-next-line no-underscore-dangle
-  return axios(`${config.apiUrl}/doekoes`, requestOptions).then(handleResponse);
+  return axios(`${config.apiUrl}/doekoes`, requestOptions)
+    .then(handleResponse)
+    .then((doekoes) => {
+      localStorage.setItem('updatedAt', JSON.stringify(new Date().getTime()));
+      localStorage.setItem('doekoes', JSON.stringify(doekoes));
+      return doekoes;
+    });
 }
 
 

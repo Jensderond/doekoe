@@ -4,11 +4,13 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
+const fs = require('fs')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const workboxPlugin = require('workbox-webpack-plugin')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -42,7 +44,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+    https: {
+      key: fs.readFileSync('./localhost+2-key.pem'),
+      cert: fs.readFileSync('./localhost+2.pem'),
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -64,7 +70,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new workboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+    })
   ]
 })
 

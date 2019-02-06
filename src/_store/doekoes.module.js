@@ -2,11 +2,10 @@
 import moment from 'moment';
 import { doekoeService } from '../_services';
 
-const state = {
-  all: {},
-  quarter: moment().quarter(),
-  updatedAt: null,
-};
+const localItems = JSON.parse(localStorage.getItem('doekoes'));
+const state = localItems
+  ? { all: { items: localItems }, quarter: moment().quarter(), updatedAt: null }
+  : { all: {}, quarter: moment().quarter(), updatedAt: null };
 
 const actions = {
   getAll({ commit }) {
@@ -45,14 +44,14 @@ const actions = {
 
 const mutations = {
   getAllRequest(state) {
-    state.all = { loading: true };
+    state.all = { items: state.all.items, loading: true };
   },
   getAllSuccess(state, doekoes) {
     state.updatedAt = new Date().getTime();
-    state.all = { items: doekoes };
+    state.all = { items: doekoes, loading: false };
   },
   getAllFailure(state, error) {
-    state.all = { error };
+    state.all = { error, loading: false };
   },
   deleteRequest(state, id) {
     // add 'deleting:true' property to user being deleted
@@ -86,16 +85,33 @@ const mutations = {
   },
   addSuccess(state, doekoe) {
     if (state.all.items === undefined) { state.all.items = []; }
+    // Save items to localStorage.
+    const localItems = JSON.parse(localStorage.getItem('doekoes'));
     state.all.items = state.all.items.map((item) => {
-      if (item.id === doekoe.id) {
+      if (
+        item.id === undefined &&
+        item.amount === doekoe.amount &&
+        item.category === doekoe.category &&
+        item.type === doekoe.type &&
+        item.company === doekoe.company
+      ) {
         // make copy of item without 'adding:true' property
         const { adding, ...doekoeCopy } = doekoe;
-        // return copy of item with 'deleteError:[error]' property
+
+        localItems.map((item) => {
+          if (item.id === undefined && item.adding === true) {
+            const { adding, ...doekoeCopy } = doekoe;
+            return { ...doekoeCopy };
+          }
+          return item;
+        });
+
         return { ...doekoeCopy };
       }
 
-      return doekoe;
+      return item;
     });
+    localStorage.setItem('doekoes', JSON.stringify(localItems));
   },
   addFailure(state, { item, error }) {
     // remove 'adding:true' property and

@@ -4,6 +4,8 @@ import { config } from '../_helpers';
 function logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('user');
+  localStorage.removeItem('doekoes');
+  localStorage.removeItem('updatedAt');
 }
 
 function handleResponse(response) {

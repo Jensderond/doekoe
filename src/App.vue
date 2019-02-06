@@ -3,7 +3,7 @@
     id="app"
     class="uk-container"
   >
-    <MenuToggle />
+    <MenuToggle v-if="user !== null"/>
     <notifications
       group="auth"
       position="center left"
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import MenuToggle from '@/components/menu/MenuToggle';
 import Footer from '@/components/footer/Footer';
 
@@ -33,6 +34,12 @@ export default {
   components: {
     MenuToggle,
     Footer,
+  },
+  computed: {
+    ...mapState({
+      user: state => state.account.user,
+      // doekoes: state => state.doekoes.all,
+    }),
   },
 };
 </script>

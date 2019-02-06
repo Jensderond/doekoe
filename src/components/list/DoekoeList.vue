@@ -23,7 +23,8 @@
           class="uk-margin uk-card uk-card-body
             uk-width-auto uk-animation-slide-bottom-small"
           :class="{ 'uk-card-income': doekoe.type === 'income',
-                    'uk-card-expense': doekoe.type === 'expense' }"
+                    'uk-card-expense': doekoe.type === 'expense',
+                    'loading': doekoesLoading === true }"
         >
           <div class="uk-width-auto">
             <h3 class="uk-card-title uk-margin-remove-bottom">€{{ doekoe.amount | currency }}</h3>
@@ -83,6 +84,7 @@ export default {
   computed: {
     ...mapState({
       account: state => state.account,
+      doekoesLoading: state => state.doekoes.all.loading,
       // doekoes: state => state.doekoes.all,
     }),
     doekoes() {
@@ -134,5 +136,21 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.loading {
+  animation: pulsate 1.7s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 </style>

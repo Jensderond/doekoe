@@ -20,8 +20,14 @@ const actions = {
           router.push('/');
         },
         (error) => {
-          commit('loginFailure', error.response.data.message);
-          dispatch('alert/error', error.response.data.message, { root: true });
+          if (error.response === undefined) {
+            const errorMessage = 'No connection to internet';
+            commit('loginFailure', errorMessage);
+            dispatch('alert/error', errorMessage, { root: true });
+          } else {
+            commit('loginFailure', error.response.data.message);
+            dispatch('alert/error', error.response.data.message, { root: true });
+          }
         },
       );
   },

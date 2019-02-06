@@ -13,6 +13,7 @@
       <div
         class="uk-margin uk-card uk-card-body
           uk-width-auto uk-animation-slide-bottom-small uk-card-income"
+        :class="{ 'loading': doekoesLoading === true }"
       >
         <div class="uk-width-auto">
           <h3 class="uk-card-title uk-margin-remove-bottom">€{{ profit | currency }}</h3>
@@ -24,6 +25,7 @@
       <div
         class="uk-margin uk-card uk-card-body
           uk-width-auto uk-animation-slide-bottom-small uk-card-expense"
+        :class="{ 'loading': doekoesLoading === true }"
       >
         <div class="uk-width-auto">
           <h3 class="uk-card-title uk-margin-remove-bottom">€{{ expense | currency }}</h3>
@@ -33,12 +35,14 @@
         </div>
       </div>
     </ul>
-    <p>Total revenue is: €{{ profit - expense | currency }}</p>
+    <p :class="{ 'loading': doekoesLoading === true }">
+      Total revenue is: €{{ profit - expense | currency }}
+    </p>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import DoekoeFilter from '@/components/filter/DoekoeFilter';
 
 export default {
@@ -56,6 +60,10 @@ export default {
     currency: value => (value / 1).toFixed(2).replace('.', ','),
   },
   computed: {
+    ...mapState({
+      doekoesLoading: state => state.doekoes.all.loading,
+      // doekoes: state => state.doekoes.all,
+    }),
     doekoes() {
       if (this.$store.state.doekoes.updatedAt === null) { this.getAllDoekoes(); }
       if (this.$store.state.doekoes.all.items === undefined) return [];
@@ -110,5 +118,21 @@ export default {
 .uk-card-expense {
   background: #b84141;
   color: #fff;
+}
+.loading {
+  animation: pulsate 1.7s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 </style>
