@@ -3,7 +3,7 @@
     id="app"
     class="uk-container"
   >
-    <MenuToggle v-if="user !== null"/>
+    <MenuToggle v-if="user !== null && user.fullname !== undefined"/>
     <notifications
       group="auth"
       position="center left"
