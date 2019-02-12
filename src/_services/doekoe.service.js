@@ -11,8 +11,8 @@ function logout() {
 
 function handleResponse(response) {
   const data = response.data;
-  if (!response.statusText === 'OK') {
-    if (response.status === 401) {
+  if (response.status === 401) {
+    if (data.message === 'invalid or expired jwt') {
       // auto logout if 401 response returned from api
       logout();
       location.reload(true);
