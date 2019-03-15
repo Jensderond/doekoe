@@ -1,7 +1,8 @@
 {
     "name": "Doekoe",
     "short_name": "Doekoe",
-    "start_url": "index.html",
+    "start_url": "/",
+    "scope": "/",
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#243447",
