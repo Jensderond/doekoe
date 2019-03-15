@@ -11,6 +11,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const workboxPlugin = require('workbox-webpack-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob-all')
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -112,7 +114,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new PurgecssPlugin({
+      paths: glob.sync([
+        path.join(__dirname, './../**/*.vue'),
+        path.join(__dirname, './../src/**/*.js')
+      ])
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

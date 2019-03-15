@@ -54,7 +54,8 @@
 import { mapActions, mapState } from 'vuex';
 import moment from 'moment';
 import UIkit from 'uikit';
-import DoekoeFilter from '@/components/filter/DoekoeFilter';
+
+const DoekoeFilter = () => import('@/components/filter/DoekoeFilter');
 
 export default {
   name: 'DoekoeList',

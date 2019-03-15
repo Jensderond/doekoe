@@ -43,7 +43,8 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import DoekoeFilter from '@/components/filter/DoekoeFilter';
+
+const DoekoeFilter = () => import('@/components/filter/DoekoeFilter');
 
 export default {
   name: 'DoekoeOverview',

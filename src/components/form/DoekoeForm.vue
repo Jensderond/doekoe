@@ -178,9 +178,10 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker';
 import { setTimeout } from 'timers';
 import { mapActions } from 'vuex';
+
+const Datepicker = () => import('vuejs-datepicker');
 
 export default {
   components: {

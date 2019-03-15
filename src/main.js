@@ -2,9 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Notifications from 'vue-notification';
-import App from './App';
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
 import { router } from './_helpers';
 import { store } from './_store';
+import './assets/main.scss';
+
+const App = () => import('./App');
+
+// loads the Icon plugin
+UIkit.use(Icons);
 
 Vue.config.productionTip = false;
 

@@ -26,8 +26,9 @@
 
 <script>
 import { mapState } from 'vuex';
-import MenuToggle from '@/components/menu/MenuToggle';
-import Footer from '@/components/footer/Footer';
+
+const MenuToggle = () => import('@/components/menu/MenuToggle');
+const Footer = () => import('@/components/footer/Footer');
 
 export default {
   name: 'App',
@@ -45,9 +46,6 @@ export default {
 </script>
 
 <style>
-html {
-  background-color: #243447;
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

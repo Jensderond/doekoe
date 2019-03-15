@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import DoekoeOverview from '@/components/overview/DoekoeOverview';
-import DoekoeList from '@/components/list/DoekoeList';
-import DoekoeForm from '@/components/form/DoekoeForm';
-import LoginPage from '@/components/login/LoginPage';
-import RegisterPage from '@/components/register/RegisterPage';
-import AboutPage from '@/components/aboutUs/AboutPage';
+
+const DoekoeOverview = () => import('@/components/overview/DoekoeOverview');
+const DoekoeList = () => import('@/components/list/DoekoeList');
+const DoekoeForm = () => import('@/components/form/DoekoeForm');
+const LoginPage = () => import('@/components/login/LoginPage');
+const RegisterPage = () => import('@/components/register/RegisterPage');
+const AboutPage = () => import('@/components/aboutUs/AboutPage');
+
 
 Vue.use(Router);
 
