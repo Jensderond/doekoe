@@ -1,6 +1,12 @@
 {
     "name": "Doekoe",
     "short_name": "Doekoe",
+    "start_url": "index.html"
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#243447",
+    "background_color": "#243447",
+    "description": "Get insights on the Doekoes you spend or receive.",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",
@@ -13,7 +19,4 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#243447",
-    "display": "standalone"
 }
