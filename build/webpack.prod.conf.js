@@ -114,7 +114,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new PurgecssPlugin({
       paths: glob.sync([
         path.join(__dirname, './../**/*.vue'),

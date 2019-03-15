@@ -1,11 +1,14 @@
 /* eslint-disable no-shadow */
-import moment from 'moment';
+import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { doekoeService } from '../_services';
+
+dayjs.extend(quarterOfYear);
 
 const localItems = JSON.parse(localStorage.getItem('doekoes'));
 const state = localItems
-  ? { all: { items: localItems }, quarter: moment().quarter(), updatedAt: null }
-  : { all: {}, quarter: moment().quarter(), updatedAt: null };
+  ? { all: { items: localItems }, quarter: dayjs().quarter(), updatedAt: null }
+  : { all: {}, quarter: dayjs().quarter(), updatedAt: null };
 
 const actions = {
   getAll({ commit }) {

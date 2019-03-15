@@ -1,6 +1,9 @@
 import axios from 'axios';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { authHeader, config } from '../_helpers';
+
+dayjs.extend(quarterOfYear);
 
 function logout() {
   // remove user from local storage to log user out
@@ -61,7 +64,7 @@ async function getById(id) {
 async function add(doekoe) {
   // Write quarter number to database for filtering
   const item = { ...doekoe };
-  item.quarter = moment(doekoe.date).quarter();
+  item.quarter = dayjs(doekoe.date).quarter();
   const requestOptions = {
     method: 'post',
     headers: { ...authHeader(), 'Content-Type': 'application/json' },

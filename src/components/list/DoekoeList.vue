@@ -52,7 +52,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import UIkit from 'uikit';
 
 const DoekoeFilter = () => import('@/components/filter/DoekoeFilter');
@@ -79,7 +79,7 @@ export default {
     },
   },
   filters: {
-    moment: date => moment(date).format('DD-MM-YYYY'),
+    moment: date => dayjs(date).format('DD-MM-YYYY'),
     currency: value => (value / 1).toFixed(2).replace('.', ','),
   },
   computed: {
