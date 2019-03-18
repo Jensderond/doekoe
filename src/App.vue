@@ -3,17 +3,9 @@
     id="app"
     class="uk-container"
   >
-    <MenuToggle v-if="user !== null && user.fullname !== undefined"/>
-    <notifications
-      group="auth"
-      position="center left"
-    />
-    <img
-      class="uk-logo uk-margin-medium-bottom uk-svg"
-      src="./assets/logo.svg"
-      height="80"
-      width="80"
-    >
+    <UiPreloader :show="loading" />
+    <div><h1>Doekoes</h1></div>
+    <Header />
     <transition
       name="fade"
       mode="out-in"
@@ -27,18 +19,20 @@
 <script>
 import { mapState } from 'vuex';
 
-const MenuToggle = () => import('@/components/menu/MenuToggle');
+const UiPreloader = () => import('@/components/keenUI/UiPreloader');
+const Header = () => import('@/components/header/Header');
 const Footer = () => import('@/components/footer/Footer');
 
 export default {
   name: 'App',
   components: {
-    MenuToggle,
+    Header,
     Footer,
+    UiPreloader,
   },
   computed: {
     ...mapState({
-      user: state => state.account.user,
+      loading: state => state.doekoes.all.loading,
       // doekoes: state => state.doekoes.all,
     }),
   },
@@ -46,19 +40,10 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #fff;
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
 .uk-align-center.vdp-datepicker__calendar {
   position: relative !important;
 }
-.vdp-datepicker__calendar {
+/* .vdp-datepicker__calendar {
   background: #202b3c !important;
 }
 .vdp-datepicker__calendar header .prev:not(.disabled):hover,
@@ -76,5 +61,5 @@ export default {
 }
 .vdp-datepicker__calendar .cell.selected:hover {
   background: #1d6d49 !important;
-}
+} */
 </style>

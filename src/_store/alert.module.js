@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 /* eslint-disable no-shadow */
 const state = {
   type: null,
@@ -22,22 +20,10 @@ const mutations = {
   success(state, message) {
     state.type = 'alert-success';
     state.message = message;
-    Vue.notify({
-      group: 'auth',
-      type: 'success',
-      title: 'Welcome',
-      text: message,
-    });
   },
   error(state, message) {
     state.type = 'alert-danger';
     state.message = message;
-    Vue.notify({
-      group: 'auth',
-      type: 'error',
-      title: 'Oops',
-      text: message,
-    });
   },
   clear(state) {
     state.type = null;

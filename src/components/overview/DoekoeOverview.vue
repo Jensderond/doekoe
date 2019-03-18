@@ -1,14 +1,13 @@
 <template>
   <div
     id="doekoeoverview"
-    class="uk-light"
   >
     <div
       class="controls__top"
     >
       <DoekoeFilter />
     </div>
-    <h2>Overview Of Financial Quarter {{ this.$store.state.doekoes.quarter }}</h2>
+    <h2>Financial Overview - Q{{ this.$store.state.doekoes.quarter }}</h2>
     <ul class="uk-list uk-list-divider">
       <div
         class="uk-margin uk-card uk-card-body

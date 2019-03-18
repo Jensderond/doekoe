@@ -1,6 +1,6 @@
 <template>
   <div
-    class="uk-light"
+    id="hamburger__toggle"
     uk-sticky="top: 0; animation: uk-animation-slide-top"
   >
     <a
@@ -22,7 +22,6 @@
           uk-close
         />
 
-
         <ul class="uk-nav uk-nav-primary uk-margin-auto-vertical">
           <h3 class="uk-text-center">Doekoe(sh)</h3>
           <li class="uk-parent">
@@ -33,8 +32,7 @@
                   to="/"
                 >
                   <span
-                    class="uk-margin-small-right"
-                    uk-icon="icon: grid"
+                    class="uk-margin-small-right icon rtw-grid"
                   />
                   Overview
                 </router-link>
@@ -44,8 +42,7 @@
                   to="/list"
                 >
                   <span
-                    class="uk-margin-small-right"
-                    uk-icon="icon: list"
+                    class="uk-margin-small-right icon rtw-list"
                   />
                   List view
                 </router-link>
@@ -55,8 +52,7 @@
                   to="/new"
                 >
                   <span
-                    class="uk-margin-small-right"
-                    uk-icon="icon: plus"
+                    class="uk-margin-small-right icon rtw-plus"
                   />
                   Add new
                 </router-link>
@@ -66,8 +62,7 @@
                   to="/about-us"
                 >
                   <span
-                    class="uk-margin-small-right"
-                    uk-icon="icon: question"
+                    class="uk-margin-small-right icon rtw-info"
                   />
                   About us
                 </router-link>
@@ -77,8 +72,7 @@
                   to="/login"
                 >
                   <span
-                    class="uk-margin-small-right"
-                    uk-icon="icon: sign-out"
+                    class="uk-margin-small-right icon rtw-log-out"
                   />
                   Sign out
                 </router-link>
@@ -99,7 +93,15 @@ export default {
 </script>
 
 <style scoped>
+#hamburger__toggle {
+    display: block;
+}
 
+@media (min-width: 800px) {
+  #hamburger__toggle {
+    display: none;
+  }
+}
 .uk-button-default {
     background-color: #e4e4e4;
     color: #273448;

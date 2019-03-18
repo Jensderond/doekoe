@@ -1,7 +1,13 @@
 <template>
-  <div class="uk-light">
+  <div>
     <h2>Login</h2>
     <span class="uk-text-meta">Get your doekoes in je eigen handen.</span>
+    <div
+      class="notify"
+      :class="{ active: alertType }"
+    >
+      <p>{{ alertText | capitalize }}</p>
+    </div>
     <form
       @submit.prevent="handleSubmit"
       class="uk-margin uk-form-stacked">
@@ -58,12 +64,12 @@
       <div class="form-group uk-margin">
         <button
           class="uk-button uk-button-primary"
-          :disabled="status.loggingIn"
+          :disabled="account.status.loggingIn"
         >
           Login
         </button>
         <img
-          v-show="status.loggingIn"
+          v-show="account.status.loggingIn"
         >
       </div>
     </form>
@@ -82,7 +88,11 @@ export default {
     };
   },
   computed: {
-    ...mapState('account', ['status']),
+    ...mapState({
+      account: 'account',
+      alertType: state => state.alert.type,
+      alertText: state => state.alert.message,
+    }),
   },
   created() {
     // reset login status
@@ -98,9 +108,35 @@ export default {
       }
     },
   },
+  filters: {
+    capitalize(value) {
+      if (!value) return '';
+      const oldValue = value.toString();
+      return oldValue.charAt(0).toUpperCase() + oldValue.slice(1);
+    },
+  },
 };
 </script>
 <style>
+.notify {
+  background: #b84141;
+  color: #fff;
+  width: auto;
+  max-width: 370px;
+  min-width: 200px;
+  margin: 10px auto;
+  border-radius: 3px;
+  padding: 8px;
+  transition: 1s opacity;
+  opacity: 0;
+}
+.notify.active {
+  opacity: 1;
+}
+.notify p {
+  height: 24px;
+  margin: 0;
+}
 .uk-form-danger,
 .uk-form-danger:focus {
   color: #f0506e !important;

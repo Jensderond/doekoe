@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-light">
+  <div>
     <h1>About us</h1>
 
     <h3>What is Doekoe(sh)?</h3>
@@ -33,7 +33,3 @@ export default {
   name: 'About',
 };
 </script>
-
-<style scoped>
-
-</style>

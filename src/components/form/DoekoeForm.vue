@@ -1,7 +1,6 @@
 <template>
   <div
     id="doekoelist"
-    class="uk-light"
   >
     <div
       v-if="isError"
@@ -251,31 +250,7 @@ export default {
   opacity: 0;
 }
 .uk-button-primary {
-  background-color: #191919;
-  color: #fff;
   transition: all .5s ease;
-}
-.uk-button-primary:focus,
-.uk-button-primary:hover {
-  background-color: #000000;
-  color: #fff
-}
-.uk-button-link {
-    padding: 0;
-    line-height: 1.5;
-    background: 0 0;
-    color: #fff;
-}
-.uk-button-secondary {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid transparent;
-  transition: all .5s ease;
-}
-.uk-button-secondary:focus,
-.uk-button-secondary:hover {
-  background-color: #151515;
-  color: #fff
 }
 .uk-button-primary-green {
   background-color: #28946b;
@@ -286,5 +261,8 @@ export default {
 .uk-button-primary-green:focus,
 .uk-button-primary-green:hover {
   background-color: #1d6d49;
+}
+.vdp-datepicker {
+  color: #000000;
 }
 </style>

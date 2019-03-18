@@ -1,6 +1,6 @@
 <template>
   <div
-    class="uk-light uk-position-relative uk-position-bottom"
+    class="uk-position-relative uk-position-bottom"
   >
     <small>Made without
       <img

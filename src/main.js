@@ -1,21 +1,14 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import Notifications from 'vue-notification';
-import UIkit from 'uikit';
-import Icons from 'uikit/dist/js/uikit-icons';
 import { router } from './_helpers';
 import { store } from './_store';
 import './assets/main.scss';
 
 const App = () => import('./App');
 
-// loads the Icon plugin
-UIkit.use(Icons);
-
 Vue.config.productionTip = false;
 
-Vue.use(Notifications);
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -33,7 +26,9 @@ if ('serviceWorker' in navigator) {
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App,
+  },
   template: '<App/>',
   store,
 });

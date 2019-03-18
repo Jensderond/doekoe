@@ -1,1 +1,116 @@
 @import 'uikit/dist/css/uikit.min.css';
+@import 'keen-ui/src/styles/imports.scss';
+
+
+$icomoon-font-family: "doekoe-icons" !default;
+$icomoon-font-path: "static/fonts" !default;
+
+$rtw-grid: "\e900";
+$rtw-info: "\e901";
+$rtw-list: "\e902";
+$rtw-log-in: "\e903";
+$rtw-log-out: "\e906";
+$rtw-plus: "\e904";
+$rtw-trash-2: "\e905";
+$rtw-x: "\e907";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.ttf') format('truetype'),
+    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.woff') format('woff'),
+    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.svg##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.rtw-grid {
+  &:before {
+    content: $rtw-grid; 
+  }
+}
+.rtw-info {
+  &:before {
+    content: $rtw-info; 
+  }
+}
+.rtw-list {
+  &:before {
+    content: $rtw-list; 
+  }
+}
+.rtw-log-in {
+  &:before {
+    content: $rtw-log-in; 
+  }
+}
+.rtw-log-out {
+  &:before {
+    content: $rtw-log-out; 
+  }
+}
+.rtw-plus {
+  &:before {
+    content: $rtw-plus; 
+  }
+}
+.rtw-trash-2 {
+  &:before {
+    content: $rtw-trash-2; 
+  }
+}
+.rtw-x {
+  &:before {
+    content: $rtw-x; 
+  }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+::selection {
+    background: rgba(255, 255, 255, 0.32);
+    color: #000;
+}
+body,
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.uk-container {
+    background: #f8f8f8;
+    -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.uk-navbar-nav>li>a {
+    color: #4e4e4e;
+}

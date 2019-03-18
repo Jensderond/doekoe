@@ -1,7 +1,6 @@
 <template>
   <div
     id="doekoelist"
-    class="uk-light"
   >
     <div
       class="controls__top uk-column-1-2"
@@ -96,7 +95,7 @@ export default {
           q => q.quarter === this.$store.state.doekoes.quarter,
         )
         .sort(
-          (a, b) => new Date(a.date) - new Date(b.date),
+          (a, b) => new Date(b.date) - new Date(a.date),
         );
     },
   },
@@ -110,6 +109,7 @@ export default {
 }
 .uk-card-income {
   background: #41b883;
+  background-image: linear-gradient(-51deg, #498e15 0%, #3cba92 100%);
   color: #fff;
 }
 .uk-card-expense h3,
@@ -119,6 +119,7 @@ export default {
 }
 .uk-card-expense {
   background: #b84141;
+  background-image: linear-gradient(51deg, #d66c43 0%, #D9193A 100%);
   color: #fff;
 }
 .uk-icon-link,
