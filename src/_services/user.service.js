@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import { config } from '../_helpers';
 
@@ -9,7 +10,7 @@ function logout() {
 }
 
 function handleResponse(response) {
-  const data = response.data;
+  const { data } = response;
   if (response.status === 401) {
     if (data.message === 'invalid or expired jwt') {
       // auto logout if 401 response returned from api

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 import { userService } from '../_services';
 import { router } from '../_helpers';
@@ -8,14 +9,13 @@ const state = user
   : { status: {}, user: null };
 
 const actions = {
-  login({ dispatch, commit }, { username, password }) {
-    commit('loginRequest', { username });
+  login({ dispatch, commit }, { email, password }) {
+    commit('loginRequest', { email });
 
-    userService.login(username, password)
+    userService.login(email, password)
       .then(
         (user) => {
           commit('loginSuccess', user);
-          dispatch('alert/success', user.fullname, { root: true });
           dispatch('doekoes/getAll', null, { root: true });
           router.push('/');
         },

@@ -1,9 +1,9 @@
-@import 'uikit/dist/css/uikit.min.css';
-@import 'keen-ui/src/styles/imports.scss';
+@import '~uikit/dist/css/uikit.css';
+// @import 'keen-ui/src/styles/imports.scss';
 
 
-$icomoon-font-family: "doekoe-icons" !default;
-$icomoon-font-path: "static/fonts" !default;
+$doekoe-font-family: "doekoe-icons" !default;
+$doekoe-font-path: "./fonts" !default;
 
 $rtw-grid: "\e900";
 $rtw-info: "\e901";
@@ -15,18 +15,18 @@ $rtw-trash-2: "\e905";
 $rtw-x: "\e907";
 
 @font-face {
-  font-family: '#{$icomoon-font-family}';
+  font-family: '#{$doekoe-font-family}';
   src:
-    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.ttf') format('truetype'),
-    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.woff') format('woff'),
-    url('../../#{$icomoon-font-path}/#{$icomoon-font-family}.svg##{$icomoon-font-family}') format('svg');
+    url('#{$doekoe-font-path}/#{$doekoe-font-family}.ttf') format('truetype'),
+    url('#{$doekoe-font-path}/#{$doekoe-font-family}.woff') format('woff'),
+    url('#{$doekoe-font-path}/#{$doekoe-font-family}.svg##{$doekoe-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 .icon {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: '#{$icomoon-font-family}' !important;
+  font-family: '#{$doekoe-font-family}' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -87,7 +87,12 @@ $rtw-x: "\e907";
 }
 
 html {
-    font-size: 100%;
+  font-size: 100%;
+
+  @media only screen and (max-width: 800px) {
+    background: white;
+    background-image: none!important;
+  }
 }
 ::selection {
     background: rgba(255, 255, 255, 0.32);
@@ -98,10 +103,42 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
+    font-family: 'Nunito Sans', Helvetica, Arial, sans-serif !important;
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+* + h1, * + .uk-h1, * + h2, * + .uk-h2, * + h3, * + .uk-h3, * + h4, * + .uk-h4, * + h5, * + .uk-h5, * + h6, * + .uk-h6 {
+  margin-top: 20px;
+}
+
+.v-bottom-nav {
+  display: flex;
+
+  @media only screen and (min-width: 801px) {
+    display: none !important;
+  }
+
+  a:hover, .uk-link:hover {
+    text-decoration: none;
+  }  
+}
+
+#app {
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media only screen and (min-width: 800px) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
 }
 
 .uk-container {
@@ -113,4 +150,103 @@ h4 {
 }
 .uk-navbar-nav>li>a {
     color: #4e4e4e;
+}
+
+.uk-sticky-placeholder {
+  display: none;
+  height: 110px !important;
+
+  @media only screen and (min-width: 800px) {
+    display: block;
+  }
+}
+
+/**
+* Top controls ( Filter and add new button )
+*/
+.controls__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  #doekoefilter,
+  a.uk-button {
+    width: calc(50% - 4px);
+  }
+}
+
+/**
+* UK List grid.
+*/
+.uk-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+
+  .uk-card {
+    width: 100%;
+    margin-bottom: 8px;
+    color: #fff;
+
+    &.uk-card-income {
+      background: rgba(59,183,115,1);
+    }
+
+    &.uk-card-expense {
+      background: rgb(183, 59, 59);
+    }
+
+    .uk-card-title,
+    .uk-text-meta {
+      color: #fff;
+    }
+
+    @media only screen and (min-width: 660px) {
+      width: calc(50% - 5px);
+    }
+
+    @media only screen and (min-width: 1000px) {
+      width: calc(33.33% - 5px);
+    }
+
+    // .uk-card-income {
+    //   background: #41b883;
+    //   background-image: linear-gradient(-51deg, #498e15 0%, #3cba92 100%);
+    //   color: #fff;
+    // }
+    // .uk-card-expense {
+    //   background: #b84141;
+    //   background-image: linear-gradient(51deg, #d66c43 0%, #D9193A 100%);
+    //   color: #fff;
+    // }
+  }
+
+  .uk-icon-link,
+  .uk-icon-link:focus,
+  .uk-icon-link:hover {
+    color: #fff;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  .loading {
+    animation: pulsate 1.7s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.5;
+  }
+  @keyframes pulsate {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
 }
