@@ -71,8 +71,4 @@ export default {
   top: 0;
   transition-delay: 25ms;
 }
-
-.application--wrap {
-  min-height: unset;
-}
 </style>

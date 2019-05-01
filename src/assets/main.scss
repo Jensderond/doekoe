@@ -155,24 +155,8 @@ a:hover, .uk-link:hover {
   }
 }
 
-.uk-container {
-    background: #f8f8f8;
-    -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4);
-    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4);
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-.uk-navbar-nav>li>a {
-    color: #4e4e4e;
-}
-
-.uk-sticky-placeholder {
-  display: none;
-  height: 110px !important;
-
-  @media only screen and (min-width: 800px) {
-    display: block;
-  }
+.application--wrap {
+  min-height: 100% !important;
 }
 
 /**
@@ -224,11 +208,6 @@ a:hover, .uk-link:hover {
     }
   }
 
-  .uk-icon-link,
-  .uk-icon-link:focus,
-  .uk-icon-link:hover {
-    color: #fff;
-  }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .4s;
   }
