@@ -1,7 +1,3 @@
-const path = require('path');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const glob = require('glob-all');
-
 module.exports = {
   pwa: {
     name: 'Doekoe',

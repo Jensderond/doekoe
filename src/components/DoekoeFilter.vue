@@ -1,7 +1,9 @@
 <template>
-  <div
+  <v-flex
     id="doekoefilter"
     class="mr-2"
+    xs6
+    md3
   >
     <v-select
       :items="optionValues"
@@ -9,20 +11,7 @@
       v-model="filterSelected"
       :change="changeOption(filterSelected)"
     ></v-select>
-    <!-- <select
-      class="uk-select"
-      v-model="filterSelected"
-      :change="changeOption(filterSelected)"
-    >
-      <option
-        v-for="optionValue in optionValues"
-        :key="optionValue.id"
-        :value="optionValue.id"
-      >
-        {{ optionValue.value }}
-      </option>
-    </select> -->
-  </div>
+  </v-flex>
 </template>
 
 <script>

@@ -6,7 +6,7 @@
     >
       <v-flex xs12>
         <h2>Login</h2>
-        <span class="uk-text-meta">Get your doekoes in je eigen handen.</span>
+        <span>Get your doekoes in je eigen handen.</span>
       </v-flex>
       <v-flex xs12>
         <form>

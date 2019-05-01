@@ -13,12 +13,18 @@
         :doekoeData="doekoe"
       />
     </div>
+    <div
+      class="no__results mb-4"
+      v-if="doekoes[0] === undefined"
+    >
+      <h2>Nothing to see here yet</h2>
+      <p style="font-size: 3em;">🤷‍♀️🤷‍♂️</p>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import UIkit from 'uikit';
 
 const DoekoeItem = () => import('@/components/DoekoeItem');
 
@@ -32,16 +38,6 @@ export default {
       getAllDoekoes: 'getAll',
       deleteDoekoe: 'delete',
     }),
-    showModal(idx, doekoe) {
-      if (doekoe === undefined) { return; }
-
-      UIkit.modal.confirm(`Are you sure you want to delete this?<br/><br/>${doekoe.company} - €${doekoe.amount}`, { bgClose: true }).then(() => {
-        this.deleteDoekoe(doekoe.id);
-      }, () => {
-        // eslint-disable-next-line
-        console.log('Rejected.');
-      });
-    },
   },
   computed: {
     ...mapState({
@@ -66,6 +62,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.no__results {
+  padding-top: 5em;
+}
+
 .loading {
   animation: pulsate 1.7s ease-out;
   animation-iteration-count: infinite;

@@ -110,9 +110,6 @@ export default {
 </script>
 
 <style scoped>
-.uk-card {
-  width: 100%;
-}
 .list {
   display: flex;
   flex-wrap: wrap;

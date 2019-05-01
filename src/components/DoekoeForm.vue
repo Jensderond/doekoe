@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: Remove all uikit references  -->
   <div
     id="doekoelist"
   >

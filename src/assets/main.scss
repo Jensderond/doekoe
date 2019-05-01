@@ -13,6 +13,7 @@ $rtw-log-out: "\e906";
 $rtw-plus: "\e904";
 $rtw-trash-2: "\e905";
 $rtw-x: "\e907";
+$btn-letter-spacing: .0892857143em !default;
 
 @font-face {
   font-family: '#{$doekoe-font-family}';
@@ -22,6 +23,10 @@ $rtw-x: "\e907";
     url('#{$doekoe-font-path}/#{$doekoe-font-family}.svg##{$doekoe-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+.v-btn {
+  letter-spacing: $btn-letter-spacing
 }
 
 .icon {

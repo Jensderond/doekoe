@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: Remove all uikit references  -->
   <v-container
     id="header-container"
     mb-2
