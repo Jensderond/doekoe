@@ -1,34 +1,43 @@
 <template>
-  <div
-    id="app"
-    class="uk-container"
-  >
-    <UiPreloader :show="loading" />
-    <div><h1>Doekoes</h1></div>
+  <v-app>
+    <v-progress-linear v-show="loading" :indeterminate="true" />
+
     <Header />
-    <transition
-      name="fade"
-      mode="out-in"
-    >
-      <router-view />
-    </transition>
+
+    <v-content>
+      <transition
+        :name="transitionName"
+      >
+        <router-view />
+      </transition>
+    </v-content>
     <Footer />
-  </div>
+  </v-app>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
-const UiPreloader = () => import('@/components/keenUI/UiPreloader');
-const Header = () => import('@/components/header/Header');
-const Footer = () => import('@/components/footer/Footer');
+const Header = () => import('@/components/Header');
+const Footer = () => import('@/components/Footer');
 
 export default {
   name: 'App',
   components: {
     Header,
     Footer,
-    UiPreloader,
+  },
+  data() {
+    return {
+      transitionName: 'slight-right',
+    };
+  },
+  watch: {
+    $route(to, from) {
+      const toDepth = to.path.length;
+      const fromDepth = from.path.length;
+      this.transitionName = toDepth > fromDepth ? 'slide-right' : 'slide-left';
+    },
   },
   computed: {
     ...mapState({
@@ -40,26 +49,26 @@ export default {
 </script>
 
 <style>
-.uk-align-center.vdp-datepicker__calendar {
-  position: relative !important;
+.slide-right-leave-active,
+.slide-right-enter-active,
+.slide-left-leave-active,
+.slide-left-enter-active {
+  transition: 350ms;
+  transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
-/* .vdp-datepicker__calendar {
-  background: #202b3c !important;
+.slide-right-enter,
+.slide-left-leave-to {
+  transform: translate(100%, 0);
 }
-.vdp-datepicker__calendar header .prev:not(.disabled):hover,
-.vdp-datepicker__calendar header .next:not(.disabled):hover,
-.vdp-datepicker__calendar header .up:not(.disabled):hover {
-  background: #111821 !important;
+.slide-right-leave-to,
+.slide-left-enter {
+  transform: translate(-110%, 0);
 }
-.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
-.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
-.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
-  border: 1px solid #28946b !important;
+
+.slide-right-enter-active,
+.slide-left-enter-active {
+  position: absolute;
+  top: 0;
+  transition-delay: 25ms;
 }
-.vdp-datepicker__calendar .cell.selected {
-  background: #28946b !important;
-}
-.vdp-datepicker__calendar .cell.selected:hover {
-  background: #1d6d49 !important;
-} */
 </style>

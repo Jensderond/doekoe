@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const DoekoeOverview = () => import('@/components/overview/DoekoeOverview');
-const DoekoeList = () => import('@/components/list/DoekoeList');
-const DoekoeForm = () => import('@/components/form/DoekoeForm');
-const LoginPage = () => import('@/components/login/LoginPage');
-const RegisterPage = () => import('@/components/register/RegisterPage');
-const AboutPage = () => import('@/components/aboutUs/AboutPage');
+const DoekoeOverview = () => import('@/components/DoekoeOverview');
+const DoekoeList = () => import('@/components/DoekoeList');
+const DoekoeForm = () => import('@/components/DoekoeForm');
+const LoginPage = () => import('@/views/LoginPage');
+const RegisterPage = () => import('@/views/RegisterPage');
+const AboutPage = () => import('@/views/AboutPage');
 
 
 Vue.use(Router);

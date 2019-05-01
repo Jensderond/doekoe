@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
@@ -13,7 +14,7 @@ function logout() {
 }
 
 function handleResponse(response) {
-  const data = response.data;
+  const { data } = response;
   if (response.message === 'Network Error') {
     // auto logout if 401 response returned from api
     logout();

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
@@ -58,11 +59,9 @@ const mutations = {
   },
   deleteRequest(state, id) {
     // add 'deleting:true' property to user being deleted
-    state.all.items = state.all.items.map(doekoe =>
-      (doekoe.id === id
-        ? { ...doekoe, deleting: true }
-        : doekoe),
-    );
+    state.all.items = state.all.items.map(doekoe => (doekoe.id === id
+      ? { ...doekoe, deleting: true }
+      : doekoe));
   },
   deleteSuccess(state, id) {
     // remove deleted user from state
@@ -92,11 +91,11 @@ const mutations = {
     const localItems = JSON.parse(localStorage.getItem('doekoes'));
     state.all.items = state.all.items.map((item) => {
       if (
-        item.id === undefined &&
-        item.amount === doekoe.amount &&
-        item.category === doekoe.category &&
-        item.type === doekoe.type &&
-        item.company === doekoe.company
+        item.id === undefined
+        && item.amount === doekoe.amount
+        && item.category === doekoe.category
+        && item.type === doekoe.type
+        && item.company === doekoe.company
       ) {
         // make copy of item without 'adding:true' property
         const { adding, ...doekoeCopy } = doekoe;

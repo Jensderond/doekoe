@@ -1,21 +1,21 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 import { userService } from '../_services';
 import { router } from '../_helpers';
 
 const user = JSON.parse(localStorage.getItem('user'));
 const state = user
-  ? { status: { loggedIn: true }, user }
-  : { status: {}, user: null };
+  ? { status: { loggedIn: false }, user }
+  : { status: { loggedIn: false }, user: null };
 
 const actions = {
-  login({ dispatch, commit }, { username, password }) {
-    commit('loginRequest', { username });
+  login({ dispatch, commit }, { email, password }) {
+    commit('loginRequest', { email });
 
-    userService.login(username, password)
+    userService.login(email, password)
       .then(
         (user) => {
           commit('loginSuccess', user);
-          dispatch('alert/success', user.fullname, { root: true });
           dispatch('doekoes/getAll', null, { root: true });
           router.push('/');
         },
@@ -62,25 +62,25 @@ const mutations = {
     state.user = user;
   },
   loginSuccess(state, user) {
-    state.status = { loggedIn: true };
+    state.status = { loggingIn: false };
     state.user = user;
   },
   loginFailure(state) {
-    state.status = {};
+    state.status = { loggingIn: false };
     state.user = null;
   },
   logout(state) {
-    state.status = {};
+    state.status = { loggingIn: false };
     state.user = null;
   },
   registerRequest(state) {
-    state.status = { registering: true };
+    state.status = { loggingIn: false, registering: true };
   },
   registerSuccess(state) {
-    state.status = {};
+    state.status = { loggingIn: false, registering: false };
   },
   registerFailure(state) {
-    state.status = {};
+    state.status = { loggingIn: false, registering: false };
   },
 };
 
