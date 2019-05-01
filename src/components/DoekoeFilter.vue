@@ -1,8 +1,15 @@
 <template>
   <div
     id="doekoefilter"
+    class="mr-2"
   >
-    <select
+    <v-select
+      :items="optionValues"
+      label="Quarter"
+      v-model="filterSelected"
+      :change="changeOption(filterSelected)"
+    ></v-select>
+    <!-- <select
       class="uk-select"
       v-model="filterSelected"
       :change="changeOption(filterSelected)"
@@ -14,7 +21,7 @@
       >
         {{ optionValue.value }}
       </option>
-    </select>
+    </select> -->
   </div>
 </template>
 
@@ -26,10 +33,10 @@ export default {
   data() {
     return {
       optionValues: [
-        { id: 1, value: 'Quarter 1' },
-        { id: 2, value: 'Quarter 2' },
-        { id: 3, value: 'Quarter 3' },
-        { id: 4, value: 'Quarter 4' },
+        { value: 1, text: 'Q1' },
+        { value: 2, text: 'Q2' },
+        { value: 3, text: 'Q3' },
+        { value: 4, text: 'Q4' },
       ],
       filterSelected: this.$store.state.doekoes.quarter,
     };

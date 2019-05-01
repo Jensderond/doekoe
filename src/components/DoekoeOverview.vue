@@ -3,57 +3,60 @@
     id="doekoeoverview"
   >
     <div
-      class="controls__top"
-    >
-      <DoekoeFilter />
-      <router-link
-        to="/new"
-        class="uk-button uk-button-secondary"
-      >Add new</router-link>
+      class="list">
+      <h2 class="mb-4">Overview - Q{{ this.$store.state.doekoes.quarter }}</h2>
+      <v-card
+        width="100%"
+        dark
+        ripple
+        class="success mb-3"
+      >
+        <v-layout
+          text-xs-center
+          wrap
+        >
+          <v-flex xs12>
+            <v-card-title primary-title>
+              <v-flex>
+                <div class="headline">€{{ profit | currency }}</div>
+                <span>Total income</span>
+              </v-flex>
+            </v-card-title>
+          </v-flex>
+        </v-layout>
+      </v-card>
+      <v-card
+        width="100%"
+        dark
+        ripple
+        class="error mb-2"
+      >
+        <v-layout
+          text-xs-center
+          wrap
+        >
+          <v-flex xs12>
+            <v-card-title primary-title>
+              <v-flex>
+                <div class="headline">€{{ expense | currency }}</div>
+                <span>Total expense</span>
+              </v-flex>
+            </v-card-title>
+          </v-flex>
+        </v-layout>
+      </v-card>
+      <p :class="{ 'loading': doekoesLoading === true }">
+        Total revenue is: €{{ profit - expense | currency }}
+      </p>
     </div>
-    <h2>Financial Overview - Q{{ this.$store.state.doekoes.quarter }}</h2>
-    <ul class="uk-list uk-list-divider">
-      <div
-        class="uk-margin uk-card uk-card-body
-          uk-width-auto uk-animation-slide-bottom-small uk-card-income"
-        :class="{ 'loading': doekoesLoading === true }"
-      >
-        <div class="uk-width-auto">
-          <h3 class="uk-card-title uk-margin-remove-bottom">€{{ profit | currency }}</h3>
-          <p class="uk-text-meta uk-margin-remove-top">
-            <time>Total income</time>
-          </p>
-        </div>
-      </div>
-      <div
-        class="uk-margin uk-card uk-card-body
-          uk-width-auto uk-animation-slide-bottom-small uk-card-expense"
-        :class="{ 'loading': doekoesLoading === true }"
-      >
-        <div class="uk-width-auto">
-          <h3 class="uk-card-title uk-margin-remove-bottom">€{{ expense | currency }}</h3>
-          <p class="uk-text-meta uk-margin-remove-top">
-            <time>Total expense</time>
-          </p>
-        </div>
-      </div>
-    </ul>
-    <p :class="{ 'loading': doekoesLoading === true }">
-      Total revenue is: €{{ profit - expense | currency }}
-    </p>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
 
-const DoekoeFilter = () => import('@/components/DoekoeFilter');
-
 export default {
   name: 'DoekoeOverview',
-  components: {
-    DoekoeFilter,
-  },
   methods: {
     ...mapActions('doekoes', {
       getAllDoekoes: 'getAll',
@@ -109,5 +112,10 @@ export default {
 <style scoped>
 .uk-card {
   width: 100%;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>

@@ -1,65 +1,31 @@
 <template>
   <div
-    id="doekoelist"
+    id="doekoes"
   >
     <div
-      class="controls__top"
-    >
-      <DoekoeFilter />
-      <router-link
-        to="/new"
-        class="uk-button uk-button-secondary"
-      >Add new</router-link>
-    </div>
-    <div
-      class="list"
+      class="list mb-4"
       v-if="doekoes[0] !== undefined"
     >
-      <ul class="uk-list uk-list-divider">
-        <div
-          v-for="(doekoe, idx) in doekoes"
-          :key="idx"
-          class="uk-card uk-card-body
-            uk-animation-slide-bottom-small"
-          :class="{ 'uk-card-income': doekoe.type === 'income',
-                    'uk-card-expense': doekoe.type === 'expense',
-                    'loading': doekoesLoading === true }"
-        >
-          <div>
-            <h3 class="uk-card-title uk-margin-remove-bottom">€{{ doekoe.amount | currency }}</h3>
-            <p class="uk-text-meta uk-margin-remove-top">
-              <time>{{ doekoe.date | moment }}</time>
-            </p>
-          </div>
-          <p>{{ doekoe.company }}</p>
-
-          <div class="uk-position-center-right uk-position-medium ">
-            <a
-              @click.prevent="showModal(idx, doekoe)"
-              id="js-modal-confirm"
-              class="uk-icon-link"
-              uk-icon="trash"
-              ratio="2"
-              href="#"
-            />
-          </div>
-        </div>
-      </ul>
+      <h2 class="mb-4 w-100">Details - Q{{ this.$store.state.doekoes.quarter }}</h2>
+      <DoekoeItem
+        v-for="(doekoe, idx) in doekoes"
+        :key="idx"
+        :doekoeData="doekoe"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import dayjs from 'dayjs';
 import UIkit from 'uikit';
 
-const DoekoeFilter = () => import('@/components/DoekoeFilter');
+const DoekoeItem = () => import('@/components/DoekoeItem');
 
 export default {
   name: 'DoekoeList',
   components: {
-    DoekoeFilter,
+    DoekoeItem,
   },
   methods: {
     ...mapActions('doekoes', {
@@ -76,10 +42,6 @@ export default {
         console.log('Rejected.');
       });
     },
-  },
-  filters: {
-    moment: date => dayjs(date).format('DD-MM-YYYY'),
-    currency: value => (value / 1).toFixed(2).replace('.', ','),
   },
   computed: {
     ...mapState({
@@ -104,49 +66,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.uk-list {
-  text-align: left;
-}
-
-// .uk-card- {
-//   color: #fff;
-//   &income {
-//     background: rgba(59,183,115,1);
-//   }
-//   &expense {
-//     background: rgb(183, 59, 59);
-//   }
-// }
-// .uk-card-income {
-//   background: rgba(59,183,115,1);
-//   color: #fff;
-// }
-.uk-card-expense h3,
-.uk-card-income h3,
-.uk-text-meta {
-  color: #fff;
-}
-// .uk-card-expense {
-//   background: rgb(183, 59, 59);
-//   color: #fff;
-// }
-.uk-icon-link,
-.uk-icon-link:focus,
-.uk-icon-link:hover {
-  color: #fff;
-}
-.controls__top {
-  margin-bottom: 10px;
-}
-[class*=uk-column-] {
-  column-gap: 20px;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .4s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 .loading {
   animation: pulsate 1.7s ease-out;
   animation-iteration-count: infinite;

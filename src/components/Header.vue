@@ -8,7 +8,7 @@
     pr-0
     pt-0
   >
-    <v-flex xs12 mt-2>
+    <v-flex xs12 mt-4 mb-2>
       <img class="flex xs3 sm2 md1"  :src="require('../assets/DOEKOE-SMALL-GR-BL.svg')" />
     </v-flex>
     <div
@@ -81,6 +81,7 @@
         </div>
       </nav>
     </div>
+    <TopControls v-if="user !== null && user.fullname !== undefined"/>
   </v-container>
 
 </template>
@@ -88,8 +89,13 @@
 <script>
 import { mapState } from 'vuex';
 
+const TopControls = () => import('@/components/TopControls');
+
 export default {
   name: 'Header',
+  components: {
+    TopControls,
+  },
   computed: {
     ...mapState({
       user: state => state.account.user,

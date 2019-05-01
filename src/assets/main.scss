@@ -1,4 +1,4 @@
-@import '~uikit/dist/css/uikit.css';
+// @import '~uikit/dist/css/uikit.css';
 // @import 'keen-ui/src/styles/imports.scss';
 
 
@@ -88,9 +88,10 @@ $rtw-x: "\e907";
 
 html {
   font-size: 100%;
+  user-select: none;
 
   @media only screen and (max-width: 800px) {
-    background: white;
+    background: #fafafa;
     background-image: none!important;
   }
 }
@@ -98,15 +99,18 @@ html {
     background: rgba(255, 255, 255, 0.32);
     color: #000;
 }
-body,
-h1,
-h2,
-h3,
-h4 {
+
+body, h1, h2, h3, h4 {
     font-family: 'Nunito Sans', Helvetica, Arial, sans-serif !important;
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.theme--dark {
+  body, h1, h2, h3, h4 {
+      color: #fff;
+  }
 }
 
 * + h1, * + .uk-h1, * + h2, * + .uk-h2, * + h3, * + .uk-h3, * + h4, * + .uk-h4, * + h5, * + .uk-h5, * + h6, * + .uk-h6 {
@@ -115,6 +119,7 @@ h4 {
 
 .v-bottom-nav {
   display: flex;
+  background-color: red;
 
   @media only screen and (min-width: 801px) {
     display: none !important;
@@ -123,6 +128,10 @@ h4 {
   a:hover, .uk-link:hover {
     text-decoration: none;
   }  
+}
+
+a:hover, .uk-link:hover {
+  text-decoration: none;
 }
 
 #app {
@@ -168,58 +177,46 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  #doekoefilter,
-  a.uk-button {
-    width: calc(50% - 4px);
-  }
 }
 
+.w-100 {
+  width: 100%;
+}
 /**
 * UK List grid.
 */
-.uk-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: left;
+#doekoes {
+  .list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
 
-  .uk-card {
-    width: 100%;
-    margin-bottom: 8px;
-    color: #fff;
-
-    &.uk-card-income {
-      background: rgba(59,183,115,1);
-    }
-
-    &.uk-card-expense {
-      background: rgb(183, 59, 59);
-    }
-
-    .uk-card-title,
-    .uk-text-meta {
+    .doekoe__item {
+      width: 100%;
+      margin-bottom: 8px;
       color: #fff;
-    }
 
-    @media only screen and (min-width: 660px) {
-      width: calc(50% - 5px);
-    }
+      &.income {
+        background: #4aaf83;
+      }
 
-    @media only screen and (min-width: 1000px) {
-      width: calc(33.33% - 5px);
-    }
+      &.expense {
+        background: #b73b3b;
+      }
 
-    // .uk-card-income {
-    //   background: #41b883;
-    //   background-image: linear-gradient(-51deg, #498e15 0%, #3cba92 100%);
-    //   color: #fff;
-    // }
-    // .uk-card-expense {
-    //   background: #b84141;
-    //   background-image: linear-gradient(51deg, #d66c43 0%, #D9193A 100%);
-    //   color: #fff;
-    // }
+      .v-card__title {
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 660px) {
+        width: calc(50% - 5px);
+      }
+
+      @media only screen and (min-width: 1000px) {
+        width: calc(33.33% - 5px);
+      }
+    }
   }
 
   .uk-icon-link,

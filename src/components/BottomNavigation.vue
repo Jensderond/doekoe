@@ -1,37 +1,25 @@
 <template>
-  <v-card flat>
+  <v-card flat v-if="account.user.email">
     <v-bottom-nav :active.sync="bottomNav" :value="true" color="white" fixed>
-        <router-link
-                to="/"
-                >
-            <v-btn color="teal" flat value="overview">
-                <span>Overview</span>
-                <v-icon>home</v-icon>
-            </v-btn>
-        </router-link>
+        <v-btn color="teal" flat value="overview" to="/">
+            <span>Overview</span>
+            <v-icon>home</v-icon>
+        </v-btn>
 
-        <router-link
-                to="/list"
-                >
-            <v-btn color="teal" flat value="list">
-                <span>List</span>
-                <v-icon>list</v-icon>
-            </v-btn>
-        </router-link>
+        <v-btn color="teal" flat value="list" to="/list">
+            <span>List</span>
+            <v-icon>list</v-icon>
+        </v-btn>
 
-        <router-link
-                to="/about-us"
-                >
-            <v-btn color="teal" flat value="about">
-                <span>About</span>
-                <v-icon>info</v-icon>
-            </v-btn>
-        </router-link>
+        <v-btn color="teal" flat value="about" to="/about-us">
+            <span>About</span>
+            <v-icon>info</v-icon>
+        </v-btn>
     </v-bottom-nav>
   </v-card>
 </template>
 <script>
-// import { mapActions, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'BottomNavigation',
@@ -39,6 +27,11 @@ export default {
     return {
       bottomNav: 'recent',
     };
+  },
+  computed: {
+    ...mapState({
+      account: state => state.account,
+    }),
   },
 };
 </script>

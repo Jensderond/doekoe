@@ -33,8 +33,17 @@
           <v-btn
             color="success"
             @click="submit"
+            :disabled="loggingIn === true"
           >
             Login
+            <v-progress-circular
+              v-if="loggingIn === true"
+              indeterminate
+              :size="25"
+              :width="3"
+              color="primary"
+              class="ml-2"
+            ></v-progress-circular>
           </v-btn>
         </form>
       </v-flex>
@@ -63,7 +72,8 @@ export default {
   },
   computed: {
     ...mapState({
-      account: 'account',
+      // account: 'account',
+      loggingIn: state => state.account.status.loggingIn,
       alertType: state => state.alert.type,
       alertText: state => state.alert.message,
     }),
