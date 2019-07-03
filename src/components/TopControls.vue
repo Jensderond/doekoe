@@ -1,7 +1,5 @@
 <template>
-    <div
-      class="controls__top"
-    >
+    <div class="controls__top">
       <DoekoeFilter />
       <v-btn color="primary" large block to="/new">Add Doekoe</v-btn>
     </div>

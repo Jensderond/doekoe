@@ -1,27 +1,45 @@
-# doekoe-app
+<h1 align="center">Welcome to Doekoe(sh) 👋</h1>
+<p>
+  <img src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/Jensderond/doekoe/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
+  <a href="https://twitter.com/JensdeRond">
+    <img alt="Twitter: JensdeRond" src="https://img.shields.io/twitter/follow/JensdeRond.svg?style=social" target="_blank" />
+  </a>
+</p>
 
-> Doekoe in kaart brengen
+> Vue application to keep track of your finances, useful when you need to file your taxes.
 
-## Build Setup
+### 🏠 [Homepage](https://doekoe.sh/)
 
-``` bash
-# install dependencies
-npm install
+## Install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
+```sh
+yarn install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Usage
+
+```sh
+yarn start
+```
+
+## Author
+
+👤 **Jens de Rond**
+
+* Twitter: [@JensdeRond](https://twitter.com/JensdeRond)
+* Github: [@Jensderond](https://github.com/Jensderond)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2019 [Jens de Rond](https://github.com/Jensderond).<br />
+This project is [MIT](https://github.com/Jensderond/doekoe/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
