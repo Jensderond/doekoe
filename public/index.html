@@ -1,81 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/quicksand/v7/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2" as="font" crossorigin>
-    <title>Doekoe</title>
-    <meta name="description" content="Get your doekoes in je eigen handen.">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/img/icons/apple-icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/img/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-icon-114x114.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/quicksand/v7/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2" as="font"
+    crossorigin>
+  <title>Doekoe</title>
+  <meta name="description" content="Get your doekoes in je eigen handen.">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#4bb46f">
-    <meta name="theme-color" content="#4bb46f">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/img/icons/apple-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-icon-114x114.png">
 
-    <!-- iPhone Xs Max (1242px x 2688px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-1242x2688.png"> 
-    <link rel="apple-touch-startup-image" media="(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-2688x1242.png"> 
-    <!-- iPhone Xr (828px x 1792px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-828x1792.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-1792x828.png">
-    <!-- iPhone X, Xs (1125px x 2436px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-1125x2436.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 812px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-2436x1125.png"> 
-    <!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-1242x2208.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 736px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3)" href="/img/splash/apple-launch-2208x1242.png"> 
-    <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-750x1334.png">  
-    <link rel="apple-touch-startup-image" media="(device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-1334x750.png">  
-    <!-- iPad Pro 12.9" (2048px x 2732px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-2048x2732.png"> 
-    <link rel="apple-touch-startup-image" media="(device-width: 1366px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-2732x2048.png"> 
-    <!-- iPad Pro 11” (1668px x 2388px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-1668x2388.png"> 
-    <link rel="apple-touch-startup-image" media="(device-width: 1194px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-2388x1668.png"> 
-    <!-- iPad Pro 10.5" (1668px x 2224px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-1668x2224.png"> 
-    <link rel="apple-touch-startup-image" media="(device-width: 1112px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-2224x1668.png"> 
-    <!-- iPad Mini, Air (1536px x 2048px) --> 
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-1536x2048.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2)" href="/img/splash/apple-launch-2048x1536.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#4bb46f">
+  <meta name="theme-color" content="#4bb46f">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- SEO -->
-    <meta property="og:title" content="Doekoe - We've got the problem under the knee">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://doekoe.sh">
-    <meta property="og:image" content="https://doekoe.sh/img/icons/favicon-32x-32.png">
-    <meta property="og:site_name" content="Doekoe.sh">
-    <meta property="og:description" content="Use Doekoe if you have a gat in your hand, you have to come it onder ogen.">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
-    <style type="text/css">
-      /* Critical CSS is inlined into the document head, abbreviated here. */
-      html{font-family:'Nunito Sans', Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;-webkit-text-size-adjust:100%;background:rgba(53,170,156,1);background-image: linear-gradient( 45deg, rgba(53,170,156,1) 0.4%, rgba(93,181,103,1) 100.2% )!important;background-repeat: no-repeat!important;color:#333;height: auto;min-height: 100vh;}body{margin:0}:root{--uk-breakpoint-s:640px;--uk-breakpoint-m:960px;--uk-breakpoint-l:1200px;--uk-breakpoint-xl:1600px}:root{--uk-leader-fill-content:.}#app{font-family:Avenir,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;color:#333;margin-top:40px;margin-bottom:60px}
-    </style>
-    <style type="text/css">
-      /* CSS for dynamic offcanvas bar from UIkit. */
-      .uk-offcanvas{display:none;position:fixed;top:0;bottom:0;left:0;z-index:1000}.uk-offcanvas-flip .uk-offcanvas{right:0;left:auto}.uk-offcanvas-bar{position:absolute;top:0;bottom:0;left:-270px;box-sizing:border-box;width:270px;padding:20px 20px;background:#222;overflow-y:auto;-webkit-overflow-scrolling:touch}@media (min-width:960px){.uk-offcanvas-bar{left:-350px;width:350px;padding:40px 40px}}.uk-offcanvas-flip .uk-offcanvas-bar{left:auto;right:-270px}@media (min-width:960px){.uk-offcanvas-flip .uk-offcanvas-bar{right:-350px}}.uk-open>.uk-offcanvas-bar{left:0}.uk-offcanvas-flip .uk-open>.uk-offcanvas-bar{left:auto;right:0}.uk-offcanvas-bar-animation{transition:left .3s ease-out}.uk-offcanvas-flip .uk-offcanvas-bar-animation{transition-property:right}.uk-offcanvas-reveal{position:absolute;top:0;bottom:0;left:0;width:0;overflow:hidden;transition:width .3s ease-out}.uk-offcanvas-reveal .uk-offcanvas-bar{left:0}.uk-offcanvas-flip .uk-offcanvas-reveal .uk-offcanvas-bar{left:auto;right:0}.uk-open>.uk-offcanvas-reveal{width:270px}@media (min-width:960px){.uk-open>.uk-offcanvas-reveal{width:350px}}.uk-offcanvas-flip .uk-offcanvas-reveal{right:0;left:auto}.uk-offcanvas-close{position:absolute;z-index:1000;top:20px;right:20px;padding:5px}.uk-offcanvas-overlay{width:100vw;touch-action:none}.uk-offcanvas-overlay::before{content:"";position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,.1);opacity:0;transition:opacity .15s linear}.uk-offcanvas-overlay.uk-open::before{opacity:1}.uk-offcanvas-container,.uk-offcanvas-page{overflow-x:hidden}.uk-offcanvas-container{position:relative;left:0;transition:left .3s ease-out;box-sizing:border-box;width:100%}:not(.uk-offcanvas-flip).uk-offcanvas-container-animation{left:270px}.uk-offcanvas-flip.uk-offcanvas-container-animation{left:-270px}@media (min-width:960px){:not(.uk-offcanvas-flip).uk-offcanvas-container-animation{left:350px}.uk-offcanvas-flip.uk-offcanvas-container-animation{left:-350px}}
-    </style>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but doekoe-new doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+  <!-- iPhone Xs Max (1242px x 2688px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-1242x2688.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-2688x1242.png">
+  <!-- iPhone Xr (828px x 1792px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-828x1792.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-1792x828.png">
+  <!-- iPhone X, Xs (1125px x 2436px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-1125x2436.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 812px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-2436x1125.png">
+  <!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-1242x2208.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 736px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3)"
+    href="/img/splash/apple-launch-2208x1242.png">
+  <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-750x1334.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-1334x750.png">
+  <!-- iPad Pro 12.9" (2048px x 2732px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-2048x2732.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1366px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-2732x2048.png">
+  <!-- iPad Pro 11” (1668px x 2388px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-1668x2388.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1194px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-2388x1668.png">
+  <!-- iPad Pro 10.5" (1668px x 2224px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-1668x2224.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1112px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-2224x1668.png">
+  <!-- iPad Mini, Air (1536px x 2048px) -->
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-1536x2048.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2)"
+    href="/img/splash/apple-launch-2048x1536.png">
+
+  <!-- SEO -->
+  <meta property="og:title" content="Doekoe - We've got the problem under the knee">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doekoe.sh">
+  <meta property="og:image" content="https://doekoe.sh/img/icons/favicon-32x-32.png">
+  <meta property="og:site_name" content="Doekoe.sh">
+  <meta property="og:description" content="Use Doekoe if you have a gat in your hand, you have to come it onder ogen.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+  <style type="text/css">
+    /* Critical CSS is inlined into the document head, abbreviated here. */
+    html {
+      font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      background: #005055;
+      background-repeat: no-repeat !important;
+      height: auto;
+      min-height: 100vh;
+    }
+
+    body {
+      margin: 0
+    }
+
+    :root {
+      --uk-breakpoint-s: 640px;
+      --uk-breakpoint-m: 960px;
+      --uk-breakpoint-l: 1200px;
+      --uk-breakpoint-xl: 1600px
+    }
+
+    :root {
+      --uk-leader-fill-content: .
+    }
+
+    #app {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 60px
+    }
+  </style>
+  <style type="text/css">
+    /* CSS for dynamic offcanvas bar from UIkit. */
+    .uk-offcanvas {
+      display: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000
+    }
+
+    .uk-offcanvas-flip .uk-offcanvas {
+      right: 0;
+      left: auto
+    }
+
+    .uk-offcanvas-bar {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -270px;
+      box-sizing: border-box;
+      width: 270px;
+      padding: 20px 20px;
+      background: #222;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch
+    }
+
+    @media (min-width:960px) {
+      .uk-offcanvas-bar {
+        left: -350px;
+        width: 350px;
+        padding: 40px 40px
+      }
+    }
+
+    .uk-offcanvas-flip .uk-offcanvas-bar {
+      left: auto;
+      right: -270px
+    }
+
+    @media (min-width:960px) {
+      .uk-offcanvas-flip .uk-offcanvas-bar {
+        right: -350px
+      }
+    }
+
+    .uk-open>.uk-offcanvas-bar {
+      left: 0
+    }
+
+    .uk-offcanvas-flip .uk-open>.uk-offcanvas-bar {
+      left: auto;
+      right: 0
+    }
+
+    .uk-offcanvas-bar-animation {
+      transition: left .3s ease-out
+    }
+
+    .uk-offcanvas-flip .uk-offcanvas-bar-animation {
+      transition-property: right
+    }
+
+    .uk-offcanvas-reveal {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      overflow: hidden;
+      transition: width .3s ease-out
+    }
+
+    .uk-offcanvas-reveal .uk-offcanvas-bar {
+      left: 0
+    }
+
+    .uk-offcanvas-flip .uk-offcanvas-reveal .uk-offcanvas-bar {
+      left: auto;
+      right: 0
+    }
+
+    .uk-open>.uk-offcanvas-reveal {
+      width: 270px
+    }
+
+    @media (min-width:960px) {
+      .uk-open>.uk-offcanvas-reveal {
+        width: 350px
+      }
+    }
+
+    .uk-offcanvas-flip .uk-offcanvas-reveal {
+      right: 0;
+      left: auto
+    }
+
+    .uk-offcanvas-close {
+      position: absolute;
+      z-index: 1000;
+      top: 20px;
+      right: 20px;
+      padding: 5px
+    }
+
+    .uk-offcanvas-overlay {
+      width: 100vw;
+      touch-action: none
+    }
+
+    .uk-offcanvas-overlay::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, .1);
+      opacity: 0;
+      transition: opacity .15s linear
+    }
+
+    .uk-offcanvas-overlay.uk-open::before {
+      opacity: 1
+    }
+
+    .uk-offcanvas-container,
+    .uk-offcanvas-page {
+      overflow-x: hidden
+    }
+
+    .uk-offcanvas-container {
+      position: relative;
+      left: 0;
+      transition: left .3s ease-out;
+      box-sizing: border-box;
+      width: 100%
+    }
+
+    :not(.uk-offcanvas-flip).uk-offcanvas-container-animation {
+      left: 270px
+    }
+
+    .uk-offcanvas-flip.uk-offcanvas-container-animation {
+      left: -270px
+    }
+
+    @media (min-width:960px) {
+      :not(.uk-offcanvas-flip).uk-offcanvas-container-animation {
+        left: 350px
+      }
+
+      .uk-offcanvas-flip.uk-offcanvas-container-animation {
+        left: -350px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but doekoe-new doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>

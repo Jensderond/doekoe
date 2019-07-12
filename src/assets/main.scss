@@ -1,7 +1,6 @@
 // @import '~uikit/dist/css/uikit.css';
 // @import 'keen-ui/src/styles/imports.scss';
 
-
 $doekoe-font-family: "doekoe-icons" !default;
 $doekoe-font-path: "./fonts" !default;
 
@@ -13,25 +12,25 @@ $rtw-log-out: "\e906";
 $rtw-plus: "\e904";
 $rtw-trash-2: "\e905";
 $rtw-x: "\e907";
-$btn-letter-spacing: .0892857143em !default;
+$btn-letter-spacing: 0.0892857143em !default;
 
 @font-face {
-  font-family: '#{$doekoe-font-family}';
-  src:
-    url('#{$doekoe-font-path}/#{$doekoe-font-family}.ttf') format('truetype'),
-    url('#{$doekoe-font-path}/#{$doekoe-font-family}.woff') format('woff'),
-    url('#{$doekoe-font-path}/#{$doekoe-font-family}.svg##{$doekoe-font-family}') format('svg');
+  font-family: "#{$doekoe-font-family}";
+  src: url("#{$doekoe-font-path}/#{$doekoe-font-family}.ttf") format("truetype"),
+    url("#{$doekoe-font-path}/#{$doekoe-font-family}.woff") format("woff"),
+    url("#{$doekoe-font-path}/#{$doekoe-font-family}.svg##{$doekoe-font-family}")
+      format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 .v-btn {
-  letter-spacing: $btn-letter-spacing
+  letter-spacing: $btn-letter-spacing;
 }
 
 .icon {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: '#{$doekoe-font-family}' !important;
+  font-family: "#{$doekoe-font-family}" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -46,49 +45,56 @@ $btn-letter-spacing: .0892857143em !default;
 
 .rtw-grid {
   &:before {
-    content: $rtw-grid; 
+    content: $rtw-grid;
   }
 }
+
 .rtw-info {
   &:before {
-    content: $rtw-info; 
+    content: $rtw-info;
   }
 }
+
 .rtw-list {
   &:before {
-    content: $rtw-list; 
+    content: $rtw-list;
   }
 }
+
 .rtw-log-in {
   &:before {
-    content: $rtw-log-in; 
+    content: $rtw-log-in;
   }
 }
+
 .rtw-log-out {
   &:before {
-    content: $rtw-log-out; 
+    content: $rtw-log-out;
   }
 }
+
 .rtw-plus {
   &:before {
-    content: $rtw-plus; 
+    content: $rtw-plus;
   }
 }
+
 .rtw-trash-2 {
   &:before {
-    content: $rtw-trash-2; 
+    content: $rtw-trash-2;
   }
 }
+
 .rtw-x {
   &:before {
-    content: $rtw-x; 
+    content: $rtw-x;
   }
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -97,28 +103,42 @@ html {
 
   @media only screen and (max-width: 800px) {
     background: #fafafa;
-    background-image: none!important;
+    background-image: none !important;
   }
 }
-::selection {
-    background: rgba(255, 255, 255, 0.32);
-    color: #000;
-}
 
-body, h1, h2, h3, h4 {
-    font-family: 'Nunito Sans', Helvetica, Arial, sans-serif !important;
-    color: #333;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Nunito Sans", Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .theme--dark {
-  body, h1, h2, h3, h4 {
-      color: #fff;
+  body,
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #fff;
   }
 }
 
-* + h1, * + .uk-h1, * + h2, * + .uk-h2, * + h3, * + .uk-h3, * + h4, * + .uk-h4, * + h5, * + .uk-h5, * + h6, * + .uk-h6 {
+* + h1,
+* + .uk-h1,
+* + h2,
+* + .uk-h2,
+* + h3,
+* + .uk-h3,
+* + h4,
+* + .uk-h4,
+* + h5,
+* + .uk-h5,
+* + h6,
+* + .uk-h6 {
   margin-top: 20px;
 }
 
@@ -130,12 +150,14 @@ body, h1, h2, h3, h4 {
     display: none !important;
   }
 
-  a:hover, .uk-link:hover {
+  a:hover,
+  .uk-link:hover {
     text-decoration: none;
-  }  
+  }
 }
 
-a:hover, .uk-link:hover {
+a:hover,
+.uk-link:hover {
   text-decoration: none;
 }
 
@@ -150,13 +172,18 @@ a:hover, .uk-link:hover {
   margin-bottom: 0;
 
   @media only screen and (min-width: 800px) {
-    margin-top: 40px;
-    margin-bottom: 60px;
+    margin-top: 64px;
+    padding-top: 8px;
+    // margin-bottom: 60px;
   }
 }
 
 .application--wrap {
   min-height: 100% !important;
+}
+
+.theme--dark.application {
+  background: none;
 }
 
 /**
@@ -171,6 +198,7 @@ a:hover, .uk-link:hover {
 .w-100 {
   width: 100%;
 }
+
 /**
 * UK List grid.
 */
@@ -186,14 +214,6 @@ a:hover, .uk-link:hover {
       margin-bottom: 8px;
       color: #fff;
 
-      &.income {
-        background: #4aaf83;
-      }
-
-      &.expense {
-        background: #b73b3b;
-      }
-
       .v-card__title {
         width: 100%;
       }
@@ -208,24 +228,31 @@ a:hover, .uk-link:hover {
     }
   }
 
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .4s;
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.4s;
   }
-  .fade-enter, .fade-leave-to {
+
+  .fade-enter,
+  .fade-leave-to {
     opacity: 0;
   }
+
   .loading {
     animation: pulsate 1.7s ease-out;
     animation-iteration-count: infinite;
     opacity: 0.5;
   }
+
   @keyframes pulsate {
     0% {
       opacity: 0.5;
     }
+
     50% {
-      opacity: 1.0;
+      opacity: 1;
     }
+
     100% {
       opacity: 0.5;
     }

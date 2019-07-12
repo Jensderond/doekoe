@@ -14,4 +14,16 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
+  rules: {
+    "quotes": [2, "double", {
+      "avoidEscape": true
+    }],
+    "comma-dangle": ["error", {
+      "arrays": "always",
+      "objects": "never",
+      "imports": "always",
+      "exports": "always",
+      "functions": "always"
+    }]
+  }
 };

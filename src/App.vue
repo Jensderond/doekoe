@@ -1,13 +1,11 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-progress-linear v-show="loading" :indeterminate="true" />
-
+    <NavigationDrawer name="Doekoe.sh" current-route />
     <Header />
 
-    <v-content>
-      <transition
-        :name="transitionName"
-      >
+    <v-content class="pa-0">
+      <transition name="fade" mode="out-in" :duration="300">
         <router-view />
       </transition>
     </v-content>
@@ -16,45 +14,56 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
-const Header = () => import('@/components/Header');
-const Footer = () => import('@/components/Footer');
+const Header = () => import("@/components/Header");
+const NavigationDrawer = () =>
+  import("@/components/Navigation/NavigationDrawer");
+const Footer = () => import("@/components/Footer");
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    Footer,
+    NavigationDrawer,
+    Footer
   },
   data() {
     return {
-      transitionName: 'slight-right',
+      transitionName: "fade-in"
     };
   },
-  watch: {
-    $route(to, from) {
-      const toDepth = to.path.length;
-      const fromDepth = from.path.length;
-      this.transitionName = toDepth > fromDepth ? 'slide-right' : 'slide-left';
-    },
-  },
+  // watch: {
+  //   $route(to, from) {
+  //     const toDepth = to.path.length;
+  //     const fromDepth = from.path.length;
+  //     this.transitionName = toDepth > fromDepth ? "slide-right" : "slide-left";
+  //   }
+  // },
   computed: {
     ...mapState({
-      loading: state => state.doekoes.all.loading,
+      loading: state => state.doekoes.all.loading
       // doekoes: state => state.doekoes.all,
-    }),
-  },
+    })
+  }
 };
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .slide-right-leave-active,
 .slide-right-enter-active,
 .slide-left-leave-active,
 .slide-left-enter-active {
   transition: 350ms;
-  transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .slide-right-enter,
 .slide-left-leave-to {
