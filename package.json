@@ -30,7 +30,7 @@
     "node-sass": "4.12.0",
     "sass-loader": "7.1.0",
     "style-resources-loader": "1.2.1",
-    "stylus": "0.54.5",
+    "stylus": "0.54.7",
     "stylus-loader": "3.0.2",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-style-resources-loader": "0.1.3",
