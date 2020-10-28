@@ -14,7 +14,7 @@
     "vue": "2.6.10",
     "vue-router": "3.0.7",
     "vuejs-datepicker": "1.6.2",
-    "vuelidate": "0.7.4",
+    "vuelidate": "0.7.6",
     "vuetify": "1.5.22",
     "vuex": "3.1.1"
   },
